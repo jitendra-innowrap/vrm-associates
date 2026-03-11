@@ -36,17 +36,14 @@ function GetInTouchForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           subject: "New Enquiry from Footer Form",
-          from_name: formData.name,
-          replyto: formData.email,
           ...formData
         }),
       });

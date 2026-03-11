@@ -31,23 +31,20 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           subject: "New Contact Enquiry from VRM Website",
-          from_name: formData.name,
-          replyto: formData.email,
           ...formData
         }),
       });
-      
+
       if (response.ok) {
         setSubmitted(true);
         toast.success("Enquiry sent successfully!");

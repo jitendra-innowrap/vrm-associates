@@ -71,27 +71,34 @@ export default function CareersPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formSubmitData = new FormData();
-    formSubmitData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
-    formSubmitData.append("subject", `New Job Application: ${formData.firstName} ${formData.lastName}`);
-    formSubmitData.append("from_name", `${formData.firstName} ${formData.lastName}`);
-    formSubmitData.append("replyto", formData.email);
-    
-    for (const key in formData) {
-      formSubmitData.append(key, formData[key as keyof typeof formData]);
-    }
-    
-    const fileInput = fileInputRef.current;
-    if (fileInput && fileInput.files && fileInput.files[0]) {
-      formSubmitData.append("attachment", fileInput.files[0]);
+    let attachmentBase64 = "";
+    let attachmentName = "";
+
+    if (fileInputRef.current?.files?.[0]) {
+      const file = fileInputRef.current.files[0];
+      attachmentName = file.name;
+
+      attachmentBase64 = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.readAsDataURL(file);
+      });
     }
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/careers", {
         method: "POST",
-        body: formSubmitData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          subject: `New Job Application: ${formData.firstName} ${formData.lastName}`,
+          attachmentBase64,
+          attachmentName
+        }),
       });
-      
+
       if (response.ok) {
         setSubmitted(true);
         toast.success("Application submitted successfully!");
@@ -200,7 +207,7 @@ export default function CareersPage() {
           <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="commit-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(197 75% 37%)" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#commit-grid)" />
@@ -388,11 +395,10 @@ export default function CareersPage() {
                         onDragLeave={() => setDragOver(false)}
                         onDrop={handleDrop}
                         onClick={() => fileInputRef.current?.click()}
-                        className={`relative cursor-pointer rounded-lg border-2 border-dashed p-8 text-center transition-all duration-200 ${
-                          dragOver || fileName
+                        className={`relative cursor-pointer rounded-lg border-2 border-dashed p-8 text-center transition-all duration-200 ${dragOver || fileName
                             ? "border-vault-cyan bg-alabaster"
                             : "border-border hover:border-vault-cyan hover:bg-alabaster"
-                        }`}
+                          }`}
                       >
                         <input
                           ref={fileInputRef}
