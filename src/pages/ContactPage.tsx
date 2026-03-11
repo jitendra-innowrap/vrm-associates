@@ -4,6 +4,13 @@ import { MapPin, Phone, Mail, Clock, ArrowRight, MessageSquare } from "lucide-re
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -252,6 +259,8 @@ export default function ContactPage() {
                         <input
                           type="text"
                           required
+                          minLength={2}
+                          maxLength={50}
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="vault-input"
@@ -280,30 +289,38 @@ export default function ContactPage() {
                         <input
                           type="tel"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          pattern="[0-9]{10}"
+                          title="Please enter a valid 10-digit mobile number"
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                            setFormData({ ...formData, phone: value });
+                          }}
                           className="vault-input"
-                          placeholder="+91 XXXXX XXXXX"
+                          placeholder="10-digit mobile number"
                         />
                       </div>
                       <div>
                         <label className="font-display text-xs font-medium text-slate-light uppercase tracking-wider mb-2 block">
                           Service Required
                         </label>
-                        <select
+                        <Select
                           value={formData.service}
-                          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="vault-input bg-transparent"
+                          onValueChange={(value) => setFormData({ ...formData, service: value })}
                         >
-                          <option value="">Select a service</option>
-                          <option value="audit">Audit & Assurance</option>
-                          <option value="tax">Direct Tax Services</option>
-                          <option value="gst">GST Services</option>
-                          <option value="advisory">Advisory Services</option>
-                          <option value="company-law">Company Law Matters</option>
-                          <option value="llp">LLP Services</option>
-                          <option value="bookkeeping">Bookkeeping</option>
-                          <option value="virtual-cfo">Virtual CFO / Office</option>
-                        </select>
+                          <SelectTrigger className="vault-input h-auto shadow-none border-x-0 border-t-0 border-b-2 rounded-none px-0 focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-vault-cyan">
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="audit">Audit & Assurance</SelectItem>
+                            <SelectItem value="tax">Direct Tax Services</SelectItem>
+                            <SelectItem value="gst">GST Services</SelectItem>
+                            <SelectItem value="advisory">Advisory Services</SelectItem>
+                            <SelectItem value="company-law">Company Law Matters</SelectItem>
+                            <SelectItem value="llp">LLP Services</SelectItem>
+                            <SelectItem value="bookkeeping">Bookkeeping</SelectItem>
+                            <SelectItem value="virtual-cfo">Virtual CFO / Office</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
                     <div>
@@ -312,6 +329,7 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         required
+                        minLength={10}
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}

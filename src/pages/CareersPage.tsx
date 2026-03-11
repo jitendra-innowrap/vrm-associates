@@ -5,6 +5,13 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import officeInteriorHero from "@/assets/office-interior-_0x9MCGU.jpg";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 const officeInterior = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -313,6 +320,8 @@ export default function CareersPage() {
                         <input
                           type="text"
                           required
+                          minLength={2}
+                          maxLength={50}
                           value={formData.firstName}
                           onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                           className="vault-input"
@@ -326,6 +335,8 @@ export default function CareersPage() {
                         <input
                           type="text"
                           required
+                          minLength={2}
+                          maxLength={50}
                           value={formData.lastName}
                           onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                           className="vault-input"
@@ -342,10 +353,15 @@ export default function CareersPage() {
                         <input
                           type="tel"
                           required
+                          pattern="[0-9]{10}"
+                          title="Please enter a valid 10-digit mobile number"
                           value={formData.mobile}
-                          onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                            setFormData({ ...formData, mobile: value });
+                          }}
                           className="vault-input"
-                          placeholder="+91 XXXXX XXXXX"
+                          placeholder="10-digit mobile number"
                         />
                       </div>
                       <div>
@@ -367,22 +383,25 @@ export default function CareersPage() {
                       <label className="font-display text-xs font-medium text-slate-light uppercase tracking-wider mb-2 block">
                         Highest Qualification *
                       </label>
-                      <select
+                      <Select
                         required
                         value={formData.qualification}
-                        onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                        className="vault-input bg-transparent"
+                        onValueChange={(value) => setFormData({ ...formData, qualification: value })}
                       >
-                        <option value="">Select your qualification</option>
-                        <option value="ca-final">CA Final</option>
-                        <option value="ca-inter">CA Inter / IPCC</option>
-                        <option value="ca-foundation">CA Foundation</option>
-                        <option value="qualified-ca">Qualified CA (FCA/ACA)</option>
-                        <option value="cs">Company Secretary (CS)</option>
-                        <option value="bcom">B.Com / M.Com</option>
-                        <option value="mba-finance">MBA Finance</option>
-                        <option value="other">Other</option>
-                      </select>
+                        <SelectTrigger className="vault-input h-auto shadow-none border-x-0 border-t-0 border-b-2 rounded-none px-0 focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-vault-cyan">
+                          <SelectValue placeholder="Select your qualification" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="ca-final">CA Final</SelectItem>
+                          <SelectItem value="ca-inter">CA Inter / IPCC</SelectItem>
+                          <SelectItem value="ca-foundation">CA Foundation</SelectItem>
+                          <SelectItem value="qualified-ca">Qualified CA (FCA/ACA)</SelectItem>
+                          <SelectItem value="cs">Company Secretary (CS)</SelectItem>
+                          <SelectItem value="bcom">B.Com / M.Com</SelectItem>
+                          <SelectItem value="mba-finance">MBA Finance</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     {/* Resume Upload */}

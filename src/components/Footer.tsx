@@ -4,6 +4,13 @@ import { Phone, Mail, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const footerLinks = {
   Pages: [
@@ -21,6 +28,11 @@ const footerLinks = {
     { label: "Advisory", href: "/services" },
     { label: "Company Law", href: "/services" },
     { label: "Virtual CFO", href: "/services" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Legal Disclaimer", href: "/disclaimer" },
   ],
 };
 
@@ -80,6 +92,8 @@ function GetInTouchForm() {
           type="text"
           placeholder="Your Name"
           required
+          minLength={2}
+          maxLength={50}
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           className="w-full bg-transparent border-b-2 border-vault-cyan/30 py-4 px-0 font-body text-obsidian placeholder:text-slate-light outline-none focus:border-vault-cyan transition-colors"
@@ -97,26 +111,37 @@ function GetInTouchForm() {
         <input
           type="tel"
           placeholder="Phone Number"
+          required
+          pattern="[0-9]{10}"
+          title="Please enter a valid 10-digit mobile number"
           value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          onChange={(e) => {
+            const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+            setFormData({ ...formData, phone: value });
+          }}
           className="w-full bg-transparent border-b-2 border-vault-cyan/30 py-4 px-0 font-body text-obsidian placeholder:text-slate-light outline-none focus:border-vault-cyan transition-colors"
         />
-        <select
+        <Select
           value={formData.service}
-          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-          className="w-full bg-transparent border-b-2 border-vault-cyan/30 py-4 px-0 font-body text-slate-mid outline-none focus:border-vault-cyan transition-colors"
+          onValueChange={(value) => setFormData({ ...formData, service: value })}
         >
-          <option value="">Select a Service</option>
-          <option value="audit">Audit & Assurance</option>
-          <option value="tax">Direct Tax</option>
-          <option value="gst">GST Services</option>
-          <option value="advisory">Advisory</option>
-          <option value="company-law">Company Law</option>
-          <option value="virtual-cfo">Virtual CFO</option>
-        </select>
+          <SelectTrigger className="w-full h-auto bg-transparent border-x-0 border-t-0 border-b-2 border-vault-cyan/30 py-4 px-0 font-body text-slate-mid outline-none focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-vault-cyan transition-colors shadow-none rounded-none">
+            <SelectValue placeholder="Select a Service" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="audit">Audit & Assurance</SelectItem>
+            <SelectItem value="tax">Direct Tax</SelectItem>
+            <SelectItem value="gst">GST Services</SelectItem>
+            <SelectItem value="advisory">Advisory</SelectItem>
+            <SelectItem value="company-law">Company Law</SelectItem>
+            <SelectItem value="virtual-cfo">Virtual CFO</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       <textarea
         placeholder="Brief description of your requirements"
+        required
+        minLength={10}
         rows={3}
         value={formData.message}
         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -207,7 +232,7 @@ export default function Footer() {
 
       {/* Footer bottom */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
