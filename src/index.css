@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   VIRENDRA RM & ASSOCIATES — Design System
+   Atelier Monolith: Financial authority through structural clarity
+   ========================================================= */
+
+@layer base {
+  :root {
+    /* Architecture */
+    --background: 210 40% 98.4%;       /* Alabaster White #F8FAFC */
+    --foreground: 222 47% 11%;         /* Obsidian Slate #0F172A */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary = Obsidian Slate */
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary = Vault Cyan */
+    --secondary: 197 75% 37%;          /* Vault Cyan #0891B2 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 213 27% 84%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 197 75% 37%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 197 75% 37%;
+
+    --radius: 0.375rem;
+
+    /* Extended Design Tokens */
+    --obsidian: 222 47% 11%;           /* #0F172A */
+    --slate-deep: 217 33% 17%;         /* #1E293B */
+    --slate-mid: 215 25% 27%;          /* #334155 */
+    --slate-light: 215 16% 47%;        /* #64748B */
+    --alabaster: 210 40% 98%;          /* #F8FAFC */
+    --vault-cyan: 197 75% 37%;         /* #0891B2 */
+    --vault-cyan-light: 186 94% 82%;   /* soft glow */
+    --vault-cyan-glow: 197 75% 37%;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(248, 250, 252, 0.72);
+    --glass-border: rgba(8, 145, 178, 0.15);
+    --glass-blur: 24px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 20px 48px rgba(15, 23, 42, 0.12), 0 8px 20px rgba(15, 23, 42, 0.07);
+    --shadow-card-hover: 0 12px 36px rgba(8, 145, 178, 0.10), 0 4px 12px rgba(15, 23, 42, 0.08);
+
+    /* Sidebar (required by shadcn) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: hsl(var(--alabaster));
+    color: hsl(var(--obsidian));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: hsl(var(--obsidian));
+  }
+}
+
+/* =========================================================
+   Glassmorphism Utility
+   ========================================================= */
+@layer components {
+  .glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(8, 145, 178, 0.12);
+    box-shadow: var(--shadow-md);
+  }
+
+  .glass-form {
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(8, 145, 178, 0.18);
+  }
+
+  /* Service card hover — presses inward, tactile */
+  .service-card {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    transform: translateZ(0);
+  }
+  .service-card:hover {
+    transform: scale(0.985) translateZ(0);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Cyan accent line */
+  .cyan-rule {
+    width: 3rem;
+    height: 2px;
+    background: hsl(var(--vault-cyan));
+    display: block;
+  }
+
+  /* Vault Cyan glow blob */
+  .glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--vault-cyan) / 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  /* Slab slide-up: used with framer-motion, defines overflow+clip */
+  .slab-container {
+    overflow: hidden;
+  }
+
+  /* Input focus: thick cyan border */
+  .vault-input {
+    @apply w-full bg-transparent border-b-2 border-border py-4 px-0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .vault-input:focus {
+    border-color: hsl(var(--vault-cyan));
+  }
+  .vault-input::placeholder {
+    color: hsl(var(--slate-light));
+  }
+
+  /* Obsidian block */
+  .obsidian-block {
+    background: hsl(var(--obsidian));
+    color: hsl(var(--alabaster));
+  }
+  .obsidian-block h1,
+  .obsidian-block h2,
+  .obsidian-block h3,
+  .obsidian-block h4 {
+    color: hsl(var(--alabaster));
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: hsl(var(--vault-cyan));
+  }
+}
+
+/* =========================================================
+   Scroll animations base state (enhanced by framer-motion)
+   ========================================================= */
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .text-obsidian { color: hsl(var(--obsidian)); }
+  .text-vault-cyan { color: hsl(var(--vault-cyan)); }
+  .text-slate-mid-custom { color: hsl(var(--slate-mid)); }
+  .text-alabaster { color: hsl(var(--alabaster)); }
+  .bg-obsidian { background-color: hsl(var(--obsidian)); }
+  .bg-alabaster { background-color: hsl(var(--alabaster)); }
+  .bg-vault-cyan { background-color: hsl(var(--vault-cyan)); }
+  .border-vault-cyan { border-color: hsl(var(--vault-cyan)); }
+  .border-obsidian { border-color: hsl(var(--obsidian)); }
+}
