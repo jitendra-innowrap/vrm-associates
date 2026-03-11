@@ -72,7 +72,7 @@ export default function CareersPage() {
     setIsSubmitting(true);
 
     const formSubmitData = new FormData();
-    formSubmitData.append("access_key", "22ef679b-f03d-4024-a7a3-32ba38ecb647"); // Web3Forms access key
+    formSubmitData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
     formSubmitData.append("subject", `New Job Application: ${formData.firstName} ${formData.lastName}`);
     formSubmitData.append("from_name", `${formData.firstName} ${formData.lastName}`);
     formSubmitData.append("replyto", formData.email);

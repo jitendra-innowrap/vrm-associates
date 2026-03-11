@@ -40,7 +40,7 @@ export default function ContactPage() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "22ef679b-f03d-4024-a7a3-32ba38ecb647", // Web3Forms access key
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           subject: "New Contact Enquiry from VRM Website",
           from_name: formData.name,
           replyto: formData.email,
