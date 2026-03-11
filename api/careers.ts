@@ -7,13 +7,12 @@ import {
   type JobApplicationData,
 } from '../src/emails/jobApplicationEmail';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Free tier: must send from onboarding@resend.dev to your verified email only
 const FROM_EMAIL = 'onboarding@resend.dev';
 const TO_EMAIL = 'jitendra@innowrap.com';
 
 export default async function handler(req: any, res: any) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
