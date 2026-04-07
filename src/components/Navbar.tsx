@@ -44,7 +44,7 @@ export default function Navbar() {
               <span className={`block w-2 h-6 rounded-sm transition-colors duration-300 ${isOpaque ? "bg-obsidian" : "bg-white"}`} />
             </span>
             <span className="font-display font-700">
-              <span className={`font-bold tracking-tight transition-colors duration-300 ${isOpaque ? "text-obsidian" : "text-white"}`}>VRM</span>
+              <span className={`font-bold tracking-tight transition-colors duration-300 ${isOpaque ? "text-obsidian" : "text-white"}`}>Virendra RM</span>
               <span className="text-vault-cyan font-semibold"> & Associates</span>
             </span>
           </NavLink>

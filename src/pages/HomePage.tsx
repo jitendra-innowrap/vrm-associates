@@ -129,14 +129,14 @@ export default function HomePage() {
             alt="Mumbai financial district skyline"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian/97 via-obsidian/90 to-obsidian/70" />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-alabaster to-transparent" />
         </div>
 
-        <div className="absolute top-0 right-0 w-[40%] h-full z-[1] opacity-10">
+        {/* <div className="absolute top-0 right-0 w-[40%] h-full z-[1] opacity-10">
           <img src={hexPattern} alt="" className="w-full h-full object-cover" />
-        </div>
+        </div> */}
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-24">
           <div className="max-w-3xl">

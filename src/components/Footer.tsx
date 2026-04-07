@@ -241,7 +241,7 @@ export default function Footer() {
                 <span className="block w-2 h-6 rounded-sm bg-obsidian" />
               </span>
               <span className="font-display font-bold text-obsidian">
-                VRM <span className="text-vault-cyan">&</span> Associates
+                Virendra RM <span className="text-vault-cyan">&</span> Associates
               </span>
             </Link>
             <p className="font-body text-sm text-slate-mid leading-relaxed max-w-xs">
