@@ -131,7 +131,7 @@ export default function CareersPage() {
             alt="VRM Associates modern office"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/85 to-obsidian/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/76 to-white/46" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-24">
@@ -144,22 +144,22 @@ export default function CareersPage() {
               <span className="inline-block w-8 h-px bg-vault-cyan" />
               <span className="section-label">Join Our Team</span>
             </div>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mt-2 leading-tight max-w-3xl">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-obsidian mt-2 leading-tight max-w-3xl">
               Build a career you're{" "}
               <span className="text-vault-cyan">proud of.</span>
             </h1>
-            <p className="font-body text-base text-white/60 mt-6 max-w-xl leading-relaxed">
+            <p className="font-body text-base text-slate-mid mt-6 max-w-xl leading-relaxed">
               At VRM Associates, we are always looking for talented, driven professionals who share our commitment to excellence, integrity, and client success. Join a firm that values your growth as much as our clients'.
             </p>
-            <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-border">
               {[
                 { label: "Multi-disciplinary Practice", val: "CA, CS & Consultants" },
                 { label: "Client Exposure", val: "Banks, NBFCs, SMEs & More" },
                 { label: "Work Culture", val: "Safe, Equal & Growth-Focused" },
               ].map((item) => (
                 <div key={item.label}>
-                  <p className="font-display font-bold text-white text-base">{item.val}</p>
-                  <p className="font-body text-xs text-white/40 mt-0.5">{item.label}</p>
+                  <p className="font-display font-bold text-obsidian text-base">{item.val}</p>
+                  <p className="font-body text-xs text-slate-light mt-0.5">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -206,42 +206,43 @@ export default function CareersPage() {
             src={officeInterior}
             alt=""
             className="w-full h-full object-cover object-center"
-            style={{ filter: "brightness(0.22) saturate(0.6)" }}
+            style={{ filter: "brightness(0.45) saturate(0.55)" }}
           />
-          {/* Additional dark overlay for guaranteed contrast */}
-          <div className="absolute inset-0 bg-obsidian/70" />
+          {/* Layered overlay so text stays readable */}
+          <div className="absolute inset-0 bg-white/52" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/76 to-white/56" />
           {/* Subtle hex grid */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="commit-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(197 75% 37%)" strokeWidth="1" />
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(27 87% 44%)" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#commit-grid)" />
           </svg>
           {/* Cyan glow left */}
           <div className="absolute bottom-0 left-0 w-96 h-96 opacity-15"
-            style={{ background: "radial-gradient(circle, hsl(197 75% 37% / 0.4) 0%, transparent 65%)" }} />
+            style={{ background: "radial-gradient(circle, hsl(27 87% 44% / 0.2) 0%, transparent 65%)" }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <span className="section-label">Our Commitment</span>
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mt-3 leading-tight">
+              <h2 className="font-display text-3xl lg:text-4xl font-bold text-obsidian mt-3 leading-tight">
                 An equal opportunity employer — always.
               </h2>
               <span className="cyan-rule mt-6 block" />
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
-              <p className="font-body text-white/85 leading-relaxed">
+              <p className="font-body text-slate-50 leading-relaxed">
                 At Virendra RM & Associates, we are committed to building a team that reflects the diversity of the clients we serve. We do not discriminate based on caste, religion, gender, age, or disability. Every candidate is evaluated solely on their professional merit, attitude, and alignment with our firm's core values.
               </p>
-              <p className="font-body text-white/85 leading-relaxed mt-4">
+              <p className="font-body text-slate-50 leading-relaxed mt-4">
                 We actively encourage applications from women, differently-abled individuals, and candidates from all backgrounds. At VRM, your talent and dedication are what matter.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {["Gender Inclusive", "Merit-Based", "Disability-Friendly", "All Backgrounds Welcome"].map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 border border-white/30 rounded-full font-body text-xs text-white/80 bg-white/5">
+                  <span key={tag} className="px-3 py-1.5 border border-border rounded-full font-body text-xs text-slate-mid bg-white/70">
                     {tag}
                   </span>
                 ))}
@@ -446,7 +447,7 @@ export default function CareersPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-obsidian text-alabaster font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? "Submitting..." : "Submit Application"}
                       {!isSubmitting && <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />}

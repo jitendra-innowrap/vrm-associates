@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, Shield, TrendingUp, FileText, Users, Building2, BookOpen, Briefcase, Layers } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
+const heroBackdrop = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -244,33 +245,37 @@ export default function ServicesPage() {
   return (
     <main className="pt-24">
       {/* ——— HERO ——— */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-obsidian">
+      <section className="relative py-20 lg:py-32 overflow-hidden lg:max-h-[80vh] border-b border-border">
+        <div className="absolute inset-0 opacity-[0.93]">
+          <img src={heroBackdrop} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-black/76 to-black/50" />
         {/* Geometric SVG background — high contrast, no photo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Diagonal line grid */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="svc-diag" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="40" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+                <line x1="0" y1="0" x2="0" y2="40" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#svc-diag)" />
           </svg>
           {/* Large arc right */}
           <svg className="absolute -right-32 -top-32 w-[700px] h-[700px] opacity-[0.08]" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="700" cy="0" r="500" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="700" cy="0" r="380" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="700" cy="0" r="260" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="700" cy="0" r="140" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+            <circle cx="700" cy="0" r="500" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="700" cy="0" r="380" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="700" cy="0" r="260" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="700" cy="0" r="140" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
           </svg>
           {/* Bottom-left small arc */}
           <svg className="absolute -left-16 bottom-0 w-[300px] h-[300px] opacity-[0.05]" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="0" cy="300" r="250" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="0" cy="300" r="160" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+            <circle cx="0" cy="300" r="250" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="0" cy="300" r="160" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
           </svg>
           {/* Cyan glow top-right */}
           <div className="absolute top-0 right-0 w-96 h-96 opacity-15"
-            style={{ background: "radial-gradient(circle, hsl(197 75% 37% / 0.5) 0%, transparent 65%)" }} />
+            style={{ background: "radial-gradient(circle, hsl(27 87% 44% / 0.28) 0%, transparent 65%)" }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
@@ -283,16 +288,16 @@ export default function ServicesPage() {
               <span className="inline-block w-8 h-px bg-vault-cyan" />
               <span className="section-label">Our Services</span>
             </div>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mt-2 leading-tight max-w-2xl">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-obsidian mt-2 leading-tight max-w-2xl">
               Comprehensive solutions.{" "}
               <span className="text-vault-cyan">Zero compromise.</span>
             </h1>
-            <p className="font-body text-base text-white/70 mt-6 max-w-xl leading-relaxed">
+            <p className="font-body text-base text-slate-mid mt-6 max-w-xl leading-relaxed">
               From startup compliance to complex multi-jurisdictional advisory, we offer end-to-end financial services covering 8 major practice areas — designed around your specific needs.
             </p>
             <div className="flex flex-wrap gap-6 mt-10">
               {serviceCategories.map((cat) => (
-                <span key={cat.id} className="font-body text-xs text-white/50 hover:text-vault-cyan transition-colors cursor-default">
+                <span key={cat.id} className="font-body text-xs text-vault-cyan transition-colors cursor-default">
                   {cat.label}
                 </span>
               ))}
@@ -324,7 +329,7 @@ export default function ServicesPage() {
                 <div className="mt-8">
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center gap-2 px-5 py-2.5 bg-obsidian text-alabaster font-display font-medium text-xs rounded-sm transition-all hover:bg-slate-deep"
+                    className="group inline-flex items-center gap-2 px-5 py-2.5 bg-vault-cyan text-white font-display font-medium text-xs rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-md hover:shadow-vault-cyan/20"
                   >
                     Get a Quote <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </Link>

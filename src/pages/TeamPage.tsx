@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, Mail, Briefcase, Award } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
+const heroBackdrop = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80&auto=format&fit=crop";
 
 import caVirendra from "@/assets/ca-virendra-DpFgvJoN.jpg";
 import caPriya from "@/assets/ca-priya-C5CTwqwN.jpg";
@@ -156,26 +157,30 @@ export default function TeamPage() {
   return (
     <main className="pt-24">
       {/* ——— HERO ——— */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-obsidian">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 opacity-[0.88]">
+          <img src={heroBackdrop} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/76 to-white/46" />
         {/* Geometric SVG hero — high clarity on dark bg */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="team-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#team-grid)" />
           </svg>
           {/* Arc right */}
           <svg className="absolute -right-20 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.08]" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="500" cy="250" r="380" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="500" cy="250" r="270" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-            <circle cx="500" cy="250" r="160" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
+            <circle cx="500" cy="250" r="380" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="500" cy="250" r="270" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
+            <circle cx="500" cy="250" r="160" stroke="hsl(27 87% 44%)" strokeWidth="1"/>
           </svg>
           {/* Cyan glow */}
           <div className="absolute top-0 right-0 w-80 h-80 opacity-15"
-            style={{ background: "radial-gradient(circle, hsl(197 75% 37% / 0.5) 0%, transparent 65%)" }} />
+            style={{ background: "radial-gradient(circle, hsl(27 87% 44% / 0.28) 0%, transparent 65%)" }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
@@ -187,14 +192,14 @@ export default function TeamPage() {
               <span className="inline-block w-8 h-px bg-vault-cyan" />
               <span className="section-label">Our Partners</span>
             </div>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mt-2 leading-tight max-w-3xl">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-obsidian mt-2 leading-tight max-w-3xl">
               The minds behind your{" "}
               <span className="text-vault-cyan">financial clarity.</span>
             </h1>
-            <p className="font-body text-base text-white/70 mt-6 max-w-xl leading-relaxed">
+            <p className="font-body text-base text-slate-mid mt-6 max-w-xl leading-relaxed">
               A team of dedicated Chartered Accountants with deep expertise across audit, taxation, and advisory — committed to your business success.
             </p>
-            <div className="flex flex-wrap gap-6 mt-10 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap gap-6 mt-10 pt-8 border-t border-border">
               {[
                 { icon: Briefcase, label: "Multi-disciplinary Team" },
                 { icon: Award, label: "ICAI Registered Professionals" },
@@ -202,7 +207,7 @@ export default function TeamPage() {
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2">
                   <item.icon size={14} className="text-vault-cyan" />
-                  <span className="font-body text-sm text-white/70">{item.label}</span>
+                  <span className="font-body text-sm text-slate-mid">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -255,7 +260,7 @@ export default function TeamPage() {
           <AnimatedSection className="mt-12 text-center">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-obsidian text-alabaster font-display font-semibold text-sm rounded-sm transition-all hover:bg-slate-deep hover:shadow-lg"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
             >
               Schedule a Consultation with Our Partners
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

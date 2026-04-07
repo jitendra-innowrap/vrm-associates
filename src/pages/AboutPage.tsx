@@ -3,7 +3,6 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Target, Eye, Users, TrendingUp, Globe, Award,
-  Landmark, Building2, BookOpen, Activity, BarChart2
 } from "lucide-react";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import officeInterior from "@/assets/office-interior-_0x9MCGU.jpg";
@@ -63,14 +62,46 @@ const coreValues = [
 ];
 
 const industries = [
-  { name: "Banking & Finance", icon: Landmark },
-  { name: "Educational Institutions", icon: BookOpen },
-  { name: "Real Estate", icon: Building2 },
-  { name: "Infrastructure", icon: Globe },
-  { name: "Brokerage Houses", icon: BarChart2 },
-  { name: "NBFC", icon: Activity },
-  { name: "Insurance Companies", icon: Award },
-  { name: "SMEs & Startups", icon: TrendingUp },
+  {
+    name: "SMEs & Startups",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-2 md:row-span-2",
+  },
+  {
+    name: "Banking & Finance",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Real Estate",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Educational Institutions",
+    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Infrastructure",
+    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Brokerage Houses",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "NBFC",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Insurance Companies",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-2 md:row-span-1",
+  },
 ];
 
 export default function AboutPage() {
@@ -84,7 +115,7 @@ export default function AboutPage() {
             alt="VRM Associates office"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/88 to-obsidian/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/76 to-white/46" />
           {/* subtle hex overlay */}
           <div className="absolute inset-0 opacity-[0.07]">
             <img src={hexPattern} alt="" className="w-full h-full object-cover" />
@@ -111,11 +142,11 @@ export default function AboutPage() {
                 <span className="inline-block w-8 h-px bg-vault-cyan" />
                 <span className="section-label">About the Firm</span>
               </div>
-              <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mt-2 leading-tight">
+              <h1 className="font-display text-5xl lg:text-6xl font-bold text-obsidian mt-2 leading-tight">
                 Professionals you can trust.{" "}
                 <span className="text-vault-cyan">Completely.</span>
               </h1>
-              <p className="font-body text-white/65 mt-6 text-base leading-relaxed">
+              <p className="font-body text-slate-mid mt-6 text-base leading-relaxed">
                 A professionally managed CA firm delivering end-to-end taxation, audit, and advisory services to domestic and international clients from Mira Road, Mumbai.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
@@ -127,7 +158,7 @@ export default function AboutPage() {
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 text-white font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-obsidian font-display font-medium text-sm rounded-sm transition-all border-vault-cyan text-vault-cyan backdrop-blur-sm"
                 >
                   Get in Touch
                 </Link>
@@ -193,10 +224,9 @@ export default function AboutPage() {
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedSection>
-              <div className="relative bg-obsidian rounded-lg p-10 overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-48 h-48 opacity-10">
-                  <img src={hexPattern} alt="" className="w-full h-full object-cover rounded-lg" />
-                </div>
+              <div className="relative bg-gradient-to-br from-[#FFF7EE] to-white border border-[#F2D7BF] rounded-lg p-10 overflow-hidden h-full">
+                <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-vault-cyan/10 blur-2xl" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-vault-cyan/60 via-vault-cyan/20 to-transparent" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 bg-vault-cyan/20 rounded-lg flex items-center justify-center">
@@ -204,7 +234,7 @@ export default function AboutPage() {
                     </div>
                     <span className="section-label">Our Mission</span>
                   </div>
-                  <p className="font-display text-2xl lg:text-3xl font-bold text-white leading-snug">
+                  <p className="font-display text-2xl lg:text-3xl font-bold text-obsidian leading-snug">
                     "We are a Partner in your Growth Journey."
                   </p>
                   <span className="cyan-rule mt-6 block" />
@@ -212,8 +242,9 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
-              <div className="relative bg-white rounded-lg p-10 border border-border overflow-hidden h-full">
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 border-2 border-vault-cyan/10 rounded-full" />
+              <div className="relative bg-gradient-to-br from-white to-[#FFF3E8] rounded-lg p-10 border border-[#EFD9C7] overflow-hidden h-full">
+                <div className="absolute -bottom-8 -right-8 w-40 h-40 border-2 border-vault-cyan/15 rounded-full" />
+                <div className="absolute -top-12 left-1/3 w-40 h-40 rounded-full bg-vault-cyan/8 blur-2xl" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 bg-alabaster rounded-lg flex items-center justify-center border border-border">
@@ -247,16 +278,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
             {/* Safe Work Environment — wide card */}
             <AnimatedSection className="md:col-span-2" delay={0}>
-              <div className="h-full bg-obsidian rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group border border-obsidian">
-                <div className="absolute top-0 right-0 w-40 h-40 opacity-10">
-                  <img src={hexPattern} alt="" className="w-full h-full object-cover" />
-                </div>
+              <div className="h-full bg-gradient-to-br from-white to-[#FFF6EE] rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group border border-[#EFD9C7] hover:border-vault-cyan transition-colors">
+                <div className="absolute -top-10 -right-8 w-40 h-40 rounded-full bg-vault-cyan/10 blur-2xl" />
+                <div className="absolute -bottom-6 left-8 w-32 h-32 rounded-full border border-vault-cyan/20" />
                 <div className="w-11 h-11 bg-vault-cyan/20 rounded-xl flex items-center justify-center mb-4">
                   <Users size={20} className="text-vault-cyan" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-white text-lg mb-1">Safe Work Environment</h3>
-                  <p className="font-body text-sm text-white/55 leading-relaxed">
+                  <h3 className="font-display font-bold text-obsidian text-lg mb-1">Safe Work Environment</h3>
+                  <p className="font-body text-sm text-slate-mid leading-relaxed">
                     We foster a safe, inclusive, and supportive workspace where every team member can thrive and contribute without fear or prejudice.
                   </p>
                 </div>
@@ -327,7 +357,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ——— INDUSTRIES — LIGHT BACKGROUND + ICON SQUARE CARDS ——— */}
+      {/* ——— INDUSTRIES — IMAGE BENTO GRID ——— */}
       <section className="py-24 bg-alabaster relative overflow-hidden">
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
@@ -348,14 +378,19 @@ export default function AboutPage() {
               We successfully cater to clients across diverse industries, delivering personalized solutions for each sector.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[220px] gap-5">
             {industries.map((ind, i) => (
-              <AnimatedSection key={ind.name} delay={i * 0.05}>
-                <div className="service-card bg-white rounded-xl p-6 border border-border hover:border-vault-cyan transition-all group flex flex-col items-center gap-3 aspect-square justify-center text-center shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan group-hover:shadow-lg group-hover:shadow-vault-cyan/20 transition-all duration-300">
-                    <ind.icon size={20} className="text-vault-cyan group-hover:text-white transition-colors duration-300" />
+              <AnimatedSection key={ind.name} delay={i * 0.06} className={ind.className}>
+                <div className="service-card group relative h-full min-h-[220px] rounded-xl overflow-hidden border border-border">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="absolute inset-0 z-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-obsidian/95 via-obsidian/65 to-transparent transition-colors duration-300" />
+                  <div className="relative z-10 h-full flex items-end p-6">
+                    <p className="font-display font-semibold text-base lg:text-lg text-white text-shadow-strong leading-snug">{ind.name}</p>
                   </div>
-                  <p className="font-display font-semibold text-sm text-obsidian group-hover:text-vault-cyan transition-colors leading-snug">{ind.name}</p>
                 </div>
               </AnimatedSection>
             ))}

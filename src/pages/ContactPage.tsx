@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+const heroBackdrop = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80&auto=format&fit=crop";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -69,11 +70,14 @@ export default function ContactPage() {
   return (
     <main className="pt-24">
       {/* ——— HERO ——— */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-obsidian">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 opacity-[0.8]">
+          <img src={heroBackdrop} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 opacity-[0.07]">
           <img src={hexPattern} alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/95 to-obsidian/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/76 to-white/46" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -84,11 +88,11 @@ export default function ContactPage() {
               <span className="inline-block w-8 h-px bg-vault-cyan" />
               <span className="section-label">Contact Us</span>
             </div>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mt-2 leading-tight max-w-2xl">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-obsidian mt-2 leading-tight max-w-2xl">
               Start the conversation.{" "}
               <span className="text-vault-cyan">We respond fast.</span>
             </h1>
-            <p className="font-body text-white/60 mt-6 max-w-xl leading-relaxed">
+            <p className="font-body text-slate-mid mt-6 max-w-xl leading-relaxed">
               Whether you have a specific compliance question or want to explore how VRM can support your business — our team is ready to help. Reach out and we'll respond within one business day.
             </p>
             <div className="flex flex-wrap gap-6 mt-8">
@@ -100,7 +104,7 @@ export default function ContactPage() {
               </a>
               <a
                 href="mailto:virendra@vrmca.in"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-border font-display font-medium text-sm rounded-sm transition-all border-vault-cyan text-vault-cyan"
               >
                 <Mail size={15} /> Email Us
               </a>
@@ -202,16 +206,16 @@ export default function ContactPage() {
               </div>
 
               {/* Quick contact card */}
-              <div className="relative bg-obsidian rounded-lg p-6 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
+              <div className="relative bg-white border border-border rounded-lg p-6 overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.06]">
                   <img src={hexPattern} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="relative z-10">
                   <MessageSquare size={20} className="text-vault-cyan mb-3" />
-                  <p className="font-display font-semibold text-white text-base mb-2">
+                  <p className="font-display font-semibold text-obsidian text-base mb-2">
                     Need urgent assistance?
                   </p>
-                  <p className="font-body text-sm text-white/60 mb-4">
+                  <p className="font-body text-sm text-slate-mid mb-4">
                     Call us directly for time-sensitive compliance or tax matters.
                   </p>
                   <a
@@ -340,7 +344,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-obsidian text-alabaster font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? "Sending Message..." : "Send Message — We'll Respond in 24 Hours"}
                       {!isSubmitting && <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />}

@@ -219,4 +219,6 @@
   .bg-vault-cyan { background-color: hsl(var(--vault-cyan)); }
   .border-vault-cyan { border-color: hsl(var(--vault-cyan)); }
   .border-obsidian { border-color: hsl(var(--obsidian)); }
+  .text-shadow-soft { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+  .text-shadow-strong { text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55); }
 }

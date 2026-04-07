@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight, Shield, TrendingUp, Users, Award, BookOpen, Building2,
-  CheckCircle, Phone, BarChart2, PieChart, Activity, Lock, Globe, Landmark
+  CheckCircle, Phone, PieChart, Landmark
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -56,14 +56,51 @@ const stats = [
 ];
 
 const industries = [
-  { name: "Banking & Finance", icon: Landmark },
-  { name: "Educational Institutions", icon: BookOpen },
-  { name: "Real Estate", icon: Building2 },
-  { name: "Infrastructure", icon: Globe },
-  { name: "Brokerage Houses", icon: BarChart2 },
-  { name: "NBFC", icon: PieChart },
-  { name: "Insurance Companies", icon: Lock },
-  { name: "SMEs & Startups", icon: Activity },
+  {
+    name: "SMEs & Startups",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-2 md:row-span-2",
+  },
+  {
+    name: "Banking & Finance",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+    icon: Landmark,
+  },
+  {
+    name: "Real Estate",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+    icon: Building2,
+  },
+  {
+    name: "Educational Institutions",
+    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+    icon: BookOpen,
+  },
+  {
+    name: "Infrastructure",
+    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Brokerage Houses",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+    icon: TrendingUp,
+  },
+  {
+    name: "NBFC",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-1 md:row-span-1",
+    icon: PieChart,
+  },
+  {
+    name: "Insurance Companies",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80&auto=format&fit=crop",
+    className: "md:col-span-2 md:row-span-1",
+  },
 ];
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -92,7 +129,8 @@ export default function HomePage() {
             alt="Mumbai financial district skyline"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/92 via-obsidian/80 to-obsidian/40" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/97 via-obsidian/90 to-obsidian/70" />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-alabaster to-transparent" />
         </div>
 
@@ -118,7 +156,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-white mt-0 leading-[1.05] tracking-tight"
+              className="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-white text-shadow-strong mt-0 leading-[1.05] tracking-tight"
             >
               We are a Partner in your{" "}
               <span className="text-vault-cyan relative">
@@ -132,7 +170,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              className="font-body text-lg text-white/75 mt-7 leading-relaxed max-w-xl"
+              className="font-body text-lg text-white/85 text-shadow-soft mt-7 leading-relaxed max-w-xl"
             >
               Virendra RM & Associates (VRM) is a professionally managed CA firm catering to domestic and international clients with a broad range of services in taxation, regulatory and advisory matters.
             </motion.p>
@@ -261,7 +299,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link
                   to="/about"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-obsidian text-white font-display font-medium text-sm rounded-sm transition-all hover:bg-slate-deep"
+                  className="group inline-flex items-center gap-2 px-6 py-3 bg-vault-cyan text-white font-display font-medium text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
                 >
                   Learn About VRM <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -340,7 +378,7 @@ export default function HomePage() {
           <AnimatedSection className="mt-10 text-center">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-obsidian text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-slate-deep hover:shadow-lg"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
             >
               View All 8 Service Categories
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -350,23 +388,31 @@ export default function HomePage() {
       </section>
 
       {/* ——— INDUSTRIES WE SERVE ——— */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-14">
             <span className="section-label">Industries We Serve</span>
             <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Our Client Universe</h2>
             <p className="font-body text-slate-mid mt-3 max-w-xl mx-auto">
               VRM successfully caters to clients across diverse sectors. For us, the sky is the limit in understanding the true potential of our clients' businesses.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[220px] gap-5">
             {industries.map((ind, i) => (
-              <AnimatedSection key={ind.name} delay={i * 0.05}>
-                <div className="service-card group rounded-lg p-6 border border-border bg-alabaster hover:border-vault-cyan hover:bg-background transition-all text-center flex flex-col items-center gap-3 aspect-square justify-center">
-                  <div className="w-10 h-10 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors">
-                    <ind.icon size={18} className="text-vault-cyan" />
+              <AnimatedSection key={ind.name} delay={i * 0.06} className={ind.className}>
+                <div className="service-card group relative h-full min-h-[220px] rounded-xl overflow-hidden border border-border">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="absolute inset-0 z-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Always-on image shading for text legibility */}
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-obsidian/95 via-obsidian/35 to-transparent transition-colors duration-300" />
+                  <div className="relative z-10 h-full flex items-end p-6">
+                    <div>
+                      <p className="font-display font-semibold text-base lg:text-lg text-white text-shadow-strong leading-snug">{ind.name}</p>
+                    </div>
                   </div>
-                  <p className="font-display font-semibold text-sm text-obsidian group-hover:text-vault-cyan transition-colors leading-snug">{ind.name}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -375,43 +421,44 @@ export default function HomePage() {
       </section>
 
       {/* ——— READY TO BEGIN CTA ——— */}
-      <section className="relative overflow-hidden bg-obsidian">
+      <section className="relative overflow-hidden bg-white border-t border-border">
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-alabaster to-transparent pointer-events-none" />
         {/* Geometric SVG background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Large circle arcs */}
           <svg className="absolute -right-24 -top-24 w-[600px] h-[600px] opacity-[0.06]" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="600" cy="0" r="400" stroke="hsl(197 75% 37%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="300" stroke="hsl(197 75% 37%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="200" stroke="hsl(197 75% 37%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="100" stroke="hsl(197 75% 37%)" strokeWidth="1" />
+            <circle cx="600" cy="0" r="400" stroke="hsl(27 87% 44%)" strokeWidth="1" />
+            <circle cx="600" cy="0" r="300" stroke="hsl(27 87% 44%)" strokeWidth="1" />
+            <circle cx="600" cy="0" r="200" stroke="hsl(27 87% 44%)" strokeWidth="1" />
+            <circle cx="600" cy="0" r="100" stroke="hsl(27 87% 44%)" strokeWidth="1" />
           </svg>
           {/* Bottom-left arcs */}
           <svg className="absolute -left-24 -bottom-24 w-[400px] h-[400px] opacity-[0.04]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="0" cy="400" r="300" stroke="hsl(197 75% 37%)" strokeWidth="1" />
-            <circle cx="0" cy="400" r="200" stroke="hsl(197 75% 37%)" strokeWidth="1" />
+            <circle cx="0" cy="400" r="300" stroke="hsl(27 87% 44%)" strokeWidth="1" />
+            <circle cx="0" cy="400" r="200" stroke="hsl(27 87% 44%)" strokeWidth="1" />
           </svg>
           {/* Diagonal lines */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="diag" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="40" stroke="hsl(197 75% 37%)" strokeWidth="1" />
+                <line x1="0" y1="0" x2="0" y2="40" stroke="hsl(27 87% 44%)" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#diag)" />
           </svg>
           {/* Cyan glow blob top-right */}
           <div className="absolute top-0 right-0 w-96 h-96 opacity-20"
-            style={{ background: "radial-gradient(circle, hsl(197 75% 37% / 0.4) 0%, transparent 70%)" }} />
+            style={{ background: "radial-gradient(circle, hsl(27 87% 44% / 0.32) 0%, transparent 70%)" }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <span className="section-label">Ready to Begin?</span>
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mt-4 leading-tight">
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-obsidian mt-4 leading-tight">
                 Your financial clarity starts with one conversation.
               </h2>
-              <p className="font-body text-white/60 mt-5 text-base leading-relaxed">
+              <p className="font-body text-slate-mid mt-5 text-base leading-relaxed">
                 Whether you're a startup seeking compliance guidance or an established enterprise requiring audit support — our team of experienced Chartered Accountants is ready to help you achieve your financial goals.
               </p>
               <div className="flex flex-wrap gap-4 mt-9">
@@ -423,7 +470,7 @@ export default function HomePage() {
                 </Link>
                 <a
                   href="tel:+917777067692"
-                  className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan"
+                  className="inline-flex items-center gap-2 px-8 py-4 border border-border text-obsidian font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan"
                 >
                   <Phone size={15} />
                   +91 7777067692
@@ -438,10 +485,10 @@ export default function HomePage() {
                   { label: "Email Us", value: "virendra@vrmca.in / priya@vrmca.in", sub: "Response within 1 business day" },
                   { label: "Visit Us", value: "Mira Road East, Thane 401107", sub: "002, Bldg C-8 Prahlad CHS, Shanti Nagar Sector 4" },
                 ].map((info) => (
-                  <div key={info.label} className="bg-white/5 border border-white/10 rounded-lg p-5 hover:border-vault-cyan/40 transition-colors">
+                  <div key={info.label} className="bg-white/80 border border-border rounded-lg p-5 hover:border-vault-cyan/40 transition-colors shadow-sm">
                     <p className="font-body text-xs text-vault-cyan uppercase tracking-wider font-medium">{info.label}</p>
-                    <p className="font-display font-semibold text-white mt-1 text-sm">{info.value}</p>
-                    <p className="font-body text-xs text-white/40 mt-0.5">{info.sub}</p>
+                    <p className="font-display font-semibold text-obsidian mt-1 text-sm">{info.value}</p>
+                    <p className="font-body text-xs text-slate-light mt-0.5">{info.sub}</p>
                   </div>
                 ))}
               </div>
