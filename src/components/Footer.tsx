@@ -150,7 +150,7 @@ function GetInTouchForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group inline-flex items-center gap-3 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm tracking-wide rounded transition-all duration-200 hover:bg-cyan-600 hover:shadow-lg hover:shadow-vault-cyan/25 disabled:opacity-70 disabled:cursor-not-allowed"
+        className="group inline-flex items-center gap-3 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm tracking-wide rounded transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/25 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Sending..." : "Send Enquiry"}
         {!isSubmitting && <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />}
@@ -163,7 +163,7 @@ export default function Footer() {
   const { ref, inView } = useScrollReveal();
 
   return (
-    <footer className="bg-sky-50 relative overflow-hidden border-t border-sky-200/60">
+    <footer className="bg-alabaster relative overflow-hidden border-t border-border">
       {/* Subtle cyan geometric accent top-right */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] opacity-20 pointer-events-none"
@@ -186,7 +186,7 @@ export default function Footer() {
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
-        className="border-b border-sky-200/80 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24"
+        className="border-b border-border/80 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24"
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
@@ -285,7 +285,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-sky-200 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-slate-light">
             © {new Date().getFullYear()} Virendra RM & Associates. All rights reserved. | CA Firm Mira Road, Mumbai.
           </p>

@@ -121,7 +121,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link
                   to="/services"
-                  className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-cyan-500"
+                  className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90"
                 >
                   Explore Our Services <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -311,7 +311,7 @@ export default function AboutPage() {
 
             {/* Equality — wide card */}
             <AnimatedSection className="md:col-span-1" delay={0.18}>
-              <div className="h-full bg-sky-50 border border-sky-200 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-vault-cyan transition-colors">
+              <div className="h-full bg-alabaster border border-border rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-vault-cyan transition-colors">
                 <div className="w-11 h-11 bg-vault-cyan/10 rounded-xl flex items-center justify-center mb-4">
                   <TrendingUp size={20} className="text-vault-cyan" />
                 </div>
@@ -363,7 +363,7 @@ export default function AboutPage() {
           <AnimatedSection className="mt-12">
             <Link
               to="/team"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-cyan-500 hover:shadow-lg"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg"
             >
               Meet Our Expert Team <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>

@@ -145,7 +145,7 @@ export default function HomePage() {
             >
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-cyan-500 hover:shadow-xl hover:shadow-vault-cyan/30"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-xl hover:shadow-vault-cyan/30"
               >
                 Schedule a Free Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -362,7 +362,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.name} delay={i * 0.05}>
-                <div className="service-card group rounded-lg p-6 border border-border bg-alabaster hover:border-vault-cyan hover:bg-sky-50 transition-all text-center flex flex-col items-center gap-3 aspect-square justify-center">
+                <div className="service-card group rounded-lg p-6 border border-border bg-alabaster hover:border-vault-cyan hover:bg-background transition-all text-center flex flex-col items-center gap-3 aspect-square justify-center">
                   <div className="w-10 h-10 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors">
                     <ind.icon size={18} className="text-vault-cyan" />
                   </div>
@@ -417,7 +417,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4 mt-9">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-cyan-500 hover:shadow-lg hover:shadow-vault-cyan/30"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/30"
                 >
                   Book a Free Consultation <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </Link>

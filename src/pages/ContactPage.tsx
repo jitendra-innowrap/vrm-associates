@@ -94,7 +94,7 @@ export default function ContactPage() {
             <div className="flex flex-wrap gap-6 mt-8">
               <a
                 href="tel:+917777067692"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-cyan-500"
+                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90"
               >
                 <Phone size={15} /> Call Now: +91 7777067692
               </a>
