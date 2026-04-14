@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { toast } from "sonner";
+import BrandLogo from "@/components/BrandLogo";
 import {
   Select,
   SelectContent,
@@ -236,13 +237,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="flex items-center gap-1">
-                <span className="block w-2 h-2 rounded-full bg-vault-cyan" />
-                <span className="block w-2 h-6 rounded-sm bg-obsidian" />
-              </span>
-              <span className="font-display font-bold text-obsidian">
-                Virendra RM <span className="text-vault-cyan">&</span> Associates
-              </span>
+              <BrandLogo />
             </Link>
             <p className="font-body text-sm text-slate-mid leading-relaxed max-w-xs">
               Virendra RM & Associates — Chartered Accountants. Your trusted partner in growth, compliance, and financial excellence.

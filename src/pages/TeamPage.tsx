@@ -230,12 +230,12 @@ export default function TeamPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="mb-14">
-            <span className="section-label">Firm Strength</span>
+            <span className="section-label">One Stop Solution</span>
             <h2 className="font-display text-4xl font-bold text-obsidian mt-3">
-              Why Clients Choose VRM
+              Why Choose VRM?
             </h2>
             <p className="font-body text-slate-mid mt-3 max-w-lg leading-relaxed">
-              From SMEs to large corporates — our clients trust us for one simple reason: we deliver exactly what we promise, on time, every time.
+              VRM is your one-stop solution for audit, taxation, compliance, and advisory support.
             </p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

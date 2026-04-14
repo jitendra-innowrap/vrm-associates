@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import heroBg from "@/assets/hero-bg-DiEWF57j.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 const aboutTeam = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80";
 
@@ -140,17 +140,6 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-24">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <span className="inline-block w-8 h-px bg-vault-cyan" />
-              <span className="font-body text-xs tracking-[0.2em] uppercase text-vault-cyan font-medium">
-                Chartered Accountants · Mira Road, Mumbai
-              </span>
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 32 }}
@@ -237,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* ——— ABOUT SUMMARY ——— */}
-      <section className="py-24 bg-white">
+      <section id="industries" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection className="relative">
@@ -456,17 +445,17 @@ export default function HomePage() {
             <AnimatedSection>
               <span className="section-label">Ready to Begin?</span>
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-obsidian mt-4 leading-tight">
-                Your financial clarity starts with one conversation.
+              Your financial clarity starts with one conversation.
               </h2>
               <p className="font-body text-slate-mid mt-5 text-base leading-relaxed">
-                Whether you're a startup seeking compliance guidance or an established enterprise requiring audit support — our team of experienced Chartered Accountants is ready to help you achieve your financial goals.
+              Do you have any query?
               </p>
               <div className="flex flex-wrap gap-4 mt-9">
                 <Link
                   to="/contact"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/30"
                 >
-                  Book a Free Consultation <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                  Contact Us <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
                   href="tel:+917777067692"

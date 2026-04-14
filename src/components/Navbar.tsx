@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import BrandLogo from "@/components/BrandLogo";
 
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
+  { label: "Sectors We Serve", to: "/#industries" },
   { label: "Team", to: "/team" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
@@ -16,6 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -30,6 +33,21 @@ export default function Navbar() {
   const isHomePage = location.pathname === "/";
   const isOpaque = !isHomePage || scrolled;
 
+  const handleIndustriesClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate("/#industries");
+    }
+
+    window.requestAnimationFrame(() => {
+      const section = document.getElementById("industries");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  };
+
   return (
     <>
       <header
@@ -39,20 +57,26 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-3 group">
-            <span className="flex items-center gap-1.5">
-              <span className="block w-2 h-2 rounded-full bg-vault-cyan" />
-              <span className={`block w-2 h-6 rounded-sm transition-colors duration-300 ${isOpaque ? "bg-obsidian" : "bg-white"}`} />
-            </span>
-            <span className="font-display font-700">
-              <span className={`font-bold tracking-tight transition-colors duration-300 ${isOpaque ? "text-obsidian" : "text-white"}`}>Virendra RM</span>
-              <span className="text-vault-cyan font-semibold"> & Associates</span>
-            </span>
+            <BrandLogo isLight={!isOpaque} />
           </NavLink>
 
           {/* Desktop Links */}
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.to}>
+                {link.to === "/#industries" ? (
+                  <a
+                    href={link.to}
+                    onClick={handleIndustriesClick}
+                    className={`font-body text-sm font-medium transition-colors duration-200 relative group ${isOpaque
+                      ? "text-slate-mid hover:text-obsidian"
+                      : "text-white/80 hover:text-white"
+                      }`}
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-0.5 left-0 h-px bg-vault-cyan transition-all duration-300 w-0 group-hover:w-full" />
+                  </a>
+                ) : (
                 <NavLink
                   to={link.to}
                   className={({ isActive }) =>
@@ -74,20 +98,34 @@ export default function Navbar() {
                     </>
                   )}
                 </NavLink>
+                )}
               </li>
             ))}
           </ul>
 
           {/* CTA */}
-          <a
-            href="/contact"
-            className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-display font-medium text-sm rounded transition-all duration-200 hover:shadow-md ${isOpaque
-                ? "bg-vault-cyan text-white hover:bg-vault-cyan/90"
-                : "bg-white/15 text-white border border-white/30 hover:bg-white/25 backdrop-blur-sm"
-              }`}
-          >
-            Get in Touch
-          </a>
+          <div className="flex gap-1">
+            <a
+              href="/VRM-Associates-Company-Profile.pdf"
+              download
+              className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-display font-medium text-sm rounded transition-all duration-200 hover:shadow-md ${isOpaque
+                  ? "border border-vault-cyan text-vault-cyan hover:bg-vault-cyan/10"
+                  : "bg-white/10 text-white border border-white/40 hover:bg-white/20 backdrop-blur-sm"
+                }`}
+            >
+              <FileText size={15} />
+              Brochure
+            </a>
+            <a
+              href="/contact"
+              className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-display font-medium text-sm rounded transition-all duration-200 hover:shadow-md ${isOpaque
+                  ? "bg-vault-cyan text-white hover:bg-vault-cyan/90"
+                  : "bg-white/15 text-white border border-white/30 hover:bg-white/25 backdrop-blur-sm"
+                }`}
+            >
+              Get in Touch
+            </a>
+          </div>
 
           {/* Mobile burger */}
           <button
@@ -113,15 +151,25 @@ export default function Navbar() {
             <ul className="flex flex-col gap-1 px-6">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    className={({ isActive }) =>
-                      `block py-3 px-2 font-body text-base font-medium border-b border-border transition-colors ${isActive ? "text-vault-cyan" : "text-obsidian"
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
+                  {link.to === "/#industries" ? (
+                    <a
+                      href={link.to}
+                      onClick={handleIndustriesClick}
+                      className="block py-3 px-2 font-body text-base font-medium border-b border-border transition-colors text-obsidian"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <NavLink
+                      to={link.to}
+                      className={({ isActive }) =>
+                        `block py-3 px-2 font-body text-base font-medium border-b border-border transition-colors ${isActive ? "text-vault-cyan" : "text-obsidian"
+                        }`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  )}
                 </li>
               ))}
               <li className="pt-4">
@@ -130,6 +178,16 @@ export default function Navbar() {
                   className="block w-full text-center px-5 py-3 bg-vault-cyan text-white font-display font-medium text-sm rounded hover:bg-vault-cyan/90 transition-colors"
                 >
                   Get in Touch
+                </a>
+              </li>
+              <li className="pt-2">
+                <a
+                  href="/VRM-Associates-Company-Profile.pdf"
+                  download
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3 border border-vault-cyan text-vault-cyan font-display font-medium text-sm rounded hover:bg-vault-cyan/10 transition-colors"
+                >
+                  <FileText size={15} />
+                  Brochure
                 </a>
               </li>
             </ul>
