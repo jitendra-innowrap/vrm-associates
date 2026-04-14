@@ -5,48 +5,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { servicesData, homeServiceIds } from "@/data/services";
 import heroBg from "@/assets/hero-bg.jpg";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 const aboutTeam = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80";
-
-const services = [
-  {
-    title: "Audit & Assurance",
-    desc: "Statutory, Tax, Internal, Due Diligence, Bank & Management Audits — delivering independent, rigorous assessments.",
-    icon: Shield,
-    items: ["Statutory Audit", "Tax Audit", "Internal Audit", "Bank Audit", "GST Audit"],
-  },
-  {
-    title: "Direct Tax Services",
-    desc: "Filing of Income Tax Returns for Corporate & Non-Corporate clients, assessments, TDS returns, Form 15CA/15CB.",
-    icon: TrendingUp,
-    items: ["ITR Filing", "Tax Assessments", "TDS Returns", "AMT/MAT Calculation", "Form 15CA & 15CB"],
-  },
-  {
-    title: "Goods & Service Tax",
-    desc: "End-to-end GST services — migration, impact analysis, return filing, implementation, and audit.",
-    icon: Award,
-    items: ["GST Registration", "Return Filing", "GST Audit", "Impact Analysis", "GST Implementation"],
-  },
-  {
-    title: "Advisory Services",
-    desc: "Business plans, share valuation, corporate restructuring, project finance, and private equity consultation.",
-    icon: Users,
-    items: ["Business Plans", "Share Valuation", "Corporate Restructuring", "Project Reports", "IFRS Advisory"],
-  },
-  {
-    title: "Company Law Matters",
-    desc: "Formation of Private/Public/Section 8 Companies, ROC filings, conversions, and XBRL annual returns.",
-    icon: Building2,
-    items: ["Company Formation", "ROC Filings", "XBRL Returns", "Company to LLP Conversion", "Buyback Advisory"],
-  },
-  {
-    title: "Virtual CFO / Bookkeeping",
-    desc: "Complete outsourced accounting, MIS reports, HR services, and statutory compliance for lean SMEs.",
-    icon: BookOpen,
-    items: ["MIS Reports", "Statutory Returns", "Financial Statements", "Co-op Society Accounting", "HR Services"],
-  },
-];
+const homeServices = homeServiceIds
+  .map((id) => servicesData.find((service) => service.id === id))
+  .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
 const stats = [
   { value: "10+", label: "Years of Excellence", sub: "Established expertise" },
@@ -226,7 +191,7 @@ export default function HomePage() {
       </section>
 
       {/* ——— ABOUT SUMMARY ——— */}
-      <section id="industries" className="py-24 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection className="relative">
@@ -337,29 +302,20 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((svc, i) => (
+            {homeServices.map((svc, i) => (
               <AnimatedSection key={svc.title} delay={i * 0.07}>
-                <div className="service-card bg-white rounded-lg p-8 border border-border h-full flex flex-col group">
+                <Link to={`/services/${svc.id}`} className="service-card bg-white rounded-lg p-8 border border-border h-full flex flex-col group">
                   <div className="w-12 h-12 rounded-lg bg-alabaster flex items-center justify-center mb-5 border border-border group-hover:bg-vault-cyan group-hover:border-vault-cyan transition-all duration-300">
                     <svc.icon size={20} className="text-vault-cyan group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-obsidian mb-2 group-hover:text-vault-cyan transition-colors">{svc.title}</h3>
-                  <p className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5">{svc.desc}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {svc.items.slice(0, 3).map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-vault-cyan flex-shrink-0" />
-                        <span className="font-body text-xs text-slate-light">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/services"
+                  <p className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5">{svc.description}</p>
+                  <span
                     className="mt-auto inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium hover:gap-3 transition-all"
                   >
-                    View full scope <ArrowRight size={12} />
-                  </Link>
-                </div>
+                    Explore this service <ArrowRight size={12} />
+                  </span>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
@@ -377,7 +333,7 @@ export default function HomePage() {
       </section>
 
       {/* ——— INDUSTRIES WE SERVE ——— */}
-      <section className="py-24 bg-white">
+      <section id="industries" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="text-center mb-14">
             <span className="section-label">Industries We Serve</span>
