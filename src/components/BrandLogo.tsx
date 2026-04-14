@@ -28,7 +28,7 @@ export default function BrandLogo({ isLight = false, compact = false }: BrandLog
 
       <span className="flex flex-col leading-tight">
         <span className={`font-display font-bold tracking-tight ${compact ? "text-base" : "text-lg"} ${primaryTextClass}`}>
-          VRM <span className="text-vault-cyan">&</span> Associates
+          Virendra RM <span className="text-vault-cyan">&</span> Associates
         </span>
         <span className={`h-px ${dividerClass} my-0.5 w-full`} />
         <span className={`font-body uppercase tracking-[0.22em] ${compact ? "text-[9px]" : "text-[10px]"} ${secondaryTextClass}`}>

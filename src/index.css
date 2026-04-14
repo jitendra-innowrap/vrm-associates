@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,13 +88,13 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Aptos', 'Segoe UI', system-ui, sans-serif;
     background-color: hsl(var(--alabaster));
     color: hsl(var(--obsidian));
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Aptos', 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: hsl(var(--obsidian));
@@ -165,7 +163,7 @@
   /* Input focus: thick cyan border */
   .vault-input {
     @apply w-full bg-transparent border-b-2 border-border py-4 px-0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Aptos', 'Segoe UI', sans-serif;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s ease;
@@ -191,7 +189,7 @@
 
   /* Section label */
   .section-label {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Aptos', 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -205,10 +203,10 @@
    ========================================================= */
 @layer utilities {
   .font-display {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Aptos', 'Segoe UI', system-ui, sans-serif;
   }
   .font-body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Aptos', 'Segoe UI', system-ui, sans-serif;
   }
   .text-obsidian { color: hsl(var(--obsidian)); }
   .text-vault-cyan { color: hsl(var(--vault-cyan)); }
