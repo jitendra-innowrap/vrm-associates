@@ -103,7 +103,14 @@ export default function ServicesPage() {
                     <svc.icon size={20} className="text-vault-cyan group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-obsidian mb-2 group-hover:text-vault-cyan transition-colors">{svc.title}</h3>
-                  <p className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5">{svc.description}</p>
+                  <ul className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5 space-y-1.5">
+                    {svc.cardPoints.map((point) => (
+                      <li key={point} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-vault-cyan mt-1.5 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <span className="mt-auto inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium hover:gap-3 transition-all">
                     View details <ArrowRight size={12} />
                   </span>

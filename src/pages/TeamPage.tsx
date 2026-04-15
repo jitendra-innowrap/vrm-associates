@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Mail, Briefcase, Award } from "lucide-react";
+import { ArrowRight, Mail, Briefcase, Award, ChevronDown } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 const heroBackdrop = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80&auto=format&fit=crop";
 
 import caVirendra from "@/assets/ca-virendra-DpFgvJoN.jpg";
 import caPriya from "@/assets/ca-priya-C5CTwqwN.jpg";
-import caNaman from "@/assets/ca-naman-Bf2Or9or.jpg";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -27,34 +26,32 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 const teamMembers = [
   {
     name: "CA Virendra Mishra",
-    designation: "Founder & In-Charge",
-    credentials: "B.Com., FCA",
+    designation: "Managing Partner",
+    credentials: "B.Com",
     experience: "10+ Years",
     photo: caVirendra,
-    specializations: ["GST", "Domestic Taxation", "International Taxation", "Statutory Audit", "Business Consultancy"],
-    bio: "CA Virendra Mishra is the founder and in-charge of the Firm. He has an all-round experience of more than 10 years in the field of GST, Domestic Taxation, International Taxation, Statutory Audit and Consultancy. His mission for the firm is to provide businesses, entrepreneurs and individuals with the highest quality accounting, auditing, tax planning and business advisory services delivered in a timely, efficient, and innovative manner with the assistance of a professional team.",
+    bio: "With 10+ years of experience, Virendra Mishra, the Founding and Managing Partner of VRM, has been the visionary driving force behind the firm's establishment and growth. His expertise spans strategic leadership, tax advisory, and corporate finance. His dedication to building long-term client relationships and creating innovative solutions has transformed the firm into a leading professional services practice.",
     contact: "virendra@vrmca.in",
   },
   {
     name: "CA Priya Mishra",
-    designation: "Partner — Audit & Assurance",
-    credentials: "CA, M.Com",
-    experience: "8+ Years",
+    designation: "Partner",
+    credentials: "M.Com, NISM certified (Broking and DP)",
+    experience: "10+ Years",
     photo: caPriya,
-    specializations: ["Audit & Assurance", "Banks & PSU Audit", "Internal Audit", "SOP Design", "Risk-Based Audit"],
-    bio: "CA Priya Mishra has deep exposure and expertise in Audit and Assurance services in the Corporate sector and PSUs operating in the financial industry — including Banks, Depository Participants, Broking Houses, NBFCs, and Financial Intermediaries. She brings a background of large corporate client audits including banks, insurance sector, brokers, and DPs. She specializes in management/operational audits, designing Standard Operating Procedures, and managing risk-based internal audits for large clients across different industries.",
+    bio: "She specializes in Assurance services to the BFSI sector and brings expertise in conducting audits of PMS companies, NBFC compliance, Stock Brokers, Research Analyst and Investment Advisors. Prior to joining the firm, she was associated with one of the leading stock brokers. She also specializes in management and operational audits, designing Standard Operating Procedures, and managing risk-based internal audits across industries.",
     contact: "priya@vrmca.in",
   },
-  {
-    name: "CA Naman Jha",
-    designation: "Partner — Advisory & Compliance",
-    credentials: "CA, B.Com.",
-    experience: "5+ Years",
-    photo: caNaman,
-    specializations: ["SME Taxation", "GST", "Banking Advisory", "Business Management", "Domestic & International Tax"],
-    bio: "CA Naman Jha brings 5+ years of focused consultancy experience to Small and Medium Businesses in the fields of Taxation, GST, Banking, and day-to-day Business Management. He specializes in providing holistic Business Solutions with a unique approach that blends expertise in Domestic Taxation, International Taxation, GST, Audit & Assurance, and Accounting. His strength lies in making complex compliance frameworks accessible and manageable for growing businesses.",
-    contact: "virendra@vrmca.in",
-  },
+];
+
+const whyVrmPoints = [
+  { title: "Multi-Disciplinary", desc: "CA, CS and business consultants under one roof — covering audit, tax, company law, and advisory." },
+  { title: "PAN-India Reach", desc: "Serving domestic and international clients from Mumbai base in Mira Road with a digital-first delivery model." },
+  { title: "Tech-Enabled", desc: "Modern, digital-first delivery of compliance and advisory. XBRL filings, cloud accounting, and online advisory." },
+  { title: "Client-First", desc: "Personalized services designed around your goals, not generic templates. Every client receives equal rigor and respect." },
+  { title: "Compliance Assurance", desc: "Stay ahead of regulations, avoiding costly penalties." },
+  { title: "Tax Planning", desc: "Maximize profits with tailored tax strategies and precise bookkeeping." },
+  { title: "Smooth Business Set up", desc: "Navigate the complexities of starting a business with ease." },
 ];
 
 function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; index: number }) {
@@ -70,49 +67,30 @@ function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; inde
       className="bg-white border border-border rounded-lg overflow-hidden"
     >
       <div className="flex flex-col h-full">
-        {/* Photo — top section */}
-        <div className="w-full relative overflow-hidden h-64 sm:h-72 shrink-0">
+        {/* Photo */}
+        <div className="w-full relative overflow-hidden h-72 sm:h-80 shrink-0 bg-alabaster">
           <img
             src={member.photo}
             alt={member.name}
-            className="w-full h-full object-cover object-top absolute inset-0"
+            className="w-full h-full object-contain object-center absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/20 to-transparent" />
-          {/* Mobile experience badge */}
-          <div className="absolute bottom-3 left-3 bg-obsidian/80 backdrop-blur-sm rounded px-3 py-1.5 border border-white/10">
-            <span className="font-display font-medium text-white text-sm"><span className="text-vault-cyan font-bold">{member.experience}</span> Exp.</span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/20 to-transparent" />
         </div>
 
-        {/* Info */}
         <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
           <div>
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="font-body text-xs text-slate-light uppercase tracking-wider mb-1.5">
-                  Chartered Accountant
-                </p>
-                <h3 className="font-display text-2xl font-bold text-obsidian">{member.name}</h3>
-                <p className="font-body text-sm text-slate-mid mt-1 font-medium">{member.designation}</p>
-                <p className="font-body text-xs text-slate-light mt-1">{member.credentials}</p>
-              </div>
-            </div>
-
-            {/* Specialization tags */}
-            <div className="flex flex-wrap gap-2 mt-5">
-              {member.specializations.map((s) => (
-                <span
-                  key={s}
-                  className="px-3 py-1 bg-alabaster border border-border rounded-full font-body text-xs text-slate-mid"
-                >
-                  {s}
-                </span>
-              ))}
+            <div>
+              <p className="font-body text-xs text-slate-light uppercase tracking-wider mb-1.5">
+                Chartered Accountant
+              </p>
+              <h3 className="font-display text-2xl font-bold text-obsidian">{member.name}</h3>
+              <p className="font-body text-sm text-slate-mid mt-1 font-medium">{member.designation}</p>
+              <p className="font-body text-xs text-slate-light mt-1">{member.credentials}</p>
+              <p className="font-body text-xs text-vault-cyan mt-2 font-medium">{member.experience} of experience</p>
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-border">
+          <div className="mt-6 pt-6 border-t border-border">
             <a
               href={`mailto:${member.contact}`}
               className="inline-flex items-center gap-2 text-vault-cyan font-body text-sm hover:gap-3 transition-all"
@@ -120,35 +98,36 @@ function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; inde
               <Mail size={14} />
               {member.contact}
             </a>
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="inline-flex items-center justify-between w-full text-slate-light font-body text-sm hover:text-obsidian transition-colors mt-2"
-            >
-              {expanded ? "Hide Bio" : "Read Full Bio"}
-              <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                <ChevronDown size={16} />
-              </motion.div>
-            </button>
+            <div className="mt-4">
+              {!expanded ? (
+                <p className="font-body text-sm text-slate-mid leading-relaxed line-clamp-2">{member.bio}</p>
+              ) : null}
+              <button
+                onClick={() => setExpanded((prev) => !prev)}
+                className="inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium mt-3 hover:gap-2 transition-all"
+              >
+                {expanded ? "Hide Summary" : "Read Full Summary"}
+                <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                  <ChevronDown size={14} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {expanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="font-body text-sm text-slate-mid leading-relaxed mt-3">{member.bio}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Expandable bio */}
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 md:px-8 pb-8 pt-0 border-t border-border bg-alabaster">
-              <p className="font-body text-sm text-slate-mid leading-relaxed pt-6">{member.bio}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 }
@@ -218,7 +197,7 @@ export default function TeamPage() {
       {/* ——— TEAM CARDS ——— */}
       <section className="py-20 bg-alabaster">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}
@@ -230,23 +209,22 @@ export default function TeamPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="mb-14">
-            <span className="section-label">One Stop Solution</span>
+            <span className="section-label">Why VRM?</span>
             <h2 className="font-display text-4xl font-bold text-obsidian mt-3">
-              Why Choose VRM?
+              Why VRM?
             </h2>
             <p className="font-body text-slate-mid mt-3 max-w-lg leading-relaxed">
-              VRM is your one-stop solution for audit, taxation, compliance, and advisory support.
+              One-stop business support with compliance assurance, tax planning, and smooth business setup.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Multi-Disciplinary", desc: "CA, CS and business consultants under one roof — covering audit, tax, company law, and advisory." },
-              { title: "Pan-India Reach", desc: "Serving domestic and international clients from our base in Mira Road, Mumbai with a digital-first delivery model." },
-              { title: "Tech-Enabled", desc: "Modern, digital-first delivery of compliance and advisory. XBRL filings, cloud accounting, and online advisory." },
-              { title: "Client-First", desc: "Personalized services designed around your goals, not generic templates. Every client receives equal rigor and respect." },
-            ].map((point, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyVrmPoints.map((point, i) => (
               <AnimatedSection key={point.title} delay={i * 0.08}>
-                <div className="service-card bg-alabaster rounded-lg p-7 border border-border h-full">
+                <div
+                  className={`service-card bg-alabaster rounded-lg p-7 border border-border h-full ${
+                    i === whyVrmPoints.length - 1 && whyVrmPoints.length % 3 === 1 ? "lg:col-start-2" : ""
+                  }`}
+                >
                   <span className="font-display font-bold text-4xl text-vault-cyan opacity-20 block mb-4">
                     {String(i + 1).padStart(2, "0")}
                   </span>

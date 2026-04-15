@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Target, Eye, Users, TrendingUp, Globe, Award,
+  ArrowRight, Target, Eye, Users, TrendingUp, Globe, Award, Check,
 } from "lucide-react";
+import { sectorsData } from "@/data/sectors";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import officeInterior from "@/assets/office-interior-_0x9MCGU.jpg";
 const aboutTeam = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80";
@@ -61,49 +62,6 @@ const coreValues = [
   },
 ];
 
-const industries = [
-  {
-    name: "SMEs & Startups",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-2 md:row-span-2",
-  },
-  {
-    name: "Banking & Finance",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Real Estate",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Educational Institutions",
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Infrastructure",
-    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Brokerage Houses",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "NBFC",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Insurance Companies",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-2 md:row-span-1",
-  },
-];
-
 export default function AboutPage() {
   return (
     <main className="pt-24">
@@ -158,7 +116,7 @@ export default function AboutPage() {
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-obsidian font-display font-medium text-sm rounded-sm transition-all border-vault-cyan text-vault-cyan backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-vault-cyan text-vault-cyan font-display font-medium text-sm rounded-sm transition-all backdrop-blur-sm"
                 >
                   Get in Touch
                 </Link>
@@ -372,24 +330,36 @@ export default function AboutPage() {
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
           <AnimatedSection className="mb-12">
-            <span className="section-label">Industries We Serve</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Our Client Universe</h2>
+            <span className="section-label">Industries We Support</span>
+            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Sectors we serve</h2>
             <p className="font-body text-slate-mid mt-3 max-w-xl leading-relaxed">
-              We successfully cater to clients across diverse industries, delivering personalized solutions for each sector.
+              Banks and financial services, service providers, construction and infrastructure, educational institutions, media, and mutual funds.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[220px] gap-5">
-            {industries.map((ind, i) => (
-              <AnimatedSection key={ind.name} delay={i * 0.06} className={ind.className}>
-                <div className="service-card group relative h-full min-h-[220px] rounded-xl overflow-hidden border border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {sectorsData.map((sector, i) => (
+              <AnimatedSection key={sector.title} delay={i * 0.06}>
+                <div className="service-card group relative rounded-xl overflow-hidden border border-border min-h-[320px] flex items-end">
                   <img
-                    src={ind.image}
-                    alt={ind.name}
-                    className="absolute inset-0 z-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src={sector.image}
+                    alt={sector.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-obsidian/95 via-obsidian/65 to-transparent transition-colors duration-300" />
-                  <div className="relative z-10 h-full flex items-end p-6">
-                    <p className="font-display font-semibold text-base lg:text-lg text-white text-shadow-strong leading-snug">{ind.name}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/55 to-obsidian/20" />
+                  <div className="relative z-10 p-6 w-full">
+                    {sector.points.length > 0 && (
+                      <ul className="space-y-1.5 mb-4">
+                        {sector.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2">
+                            <Check size={14} className="text-vault-cyan mt-0.5 flex-shrink-0" />
+                            <span className="font-body text-sm text-white/90">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <p className="font-display font-semibold text-lg text-white text-shadow-strong leading-snug">
+                      {sector.title}
+                    </p>
                   </div>
                 </div>
               </AnimatedSection>

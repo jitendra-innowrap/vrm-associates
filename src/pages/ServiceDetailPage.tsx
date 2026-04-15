@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Layers } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { servicesData } from "@/data/services";
@@ -64,60 +64,34 @@ export default function ServiceDetailPage() {
       <section className="py-20 bg-alabaster">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="mb-12">
-            <span className="section-label">Key Focus Areas</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Where We Add Value</h2>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {service.highlights.map((highlight, index) => (
-              <AnimatedSection key={highlight} delay={index * 0.08}>
-                <div className="service-card bg-white rounded-lg p-6 border border-border h-full">
-                  <span className="font-display font-bold text-3xl text-vault-cyan/25 block mb-4">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <p className="font-display text-obsidian font-semibold leading-snug">{highlight}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <AnimatedSection className="mb-12">
-            <span className="section-label">Scope of Work</span>
+            <span className="section-label">Service Hierarchy</span>
             <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Service Deliverables</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {service.scope.map((item, index) => (
-              <AnimatedSection key={item} delay={index * 0.05}>
-                <div className="service-card bg-alabaster rounded-lg p-6 border border-border h-full flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={18} className="text-vault-cyan" />
-                  </div>
-                  <p className="font-body text-sm text-slate-mid leading-relaxed">{item}</p>
+            {service.detailSections.map((section, index) => (
+              <AnimatedSection key={section.title} delay={index * 0.08}>
+                <div className="service-card bg-white rounded-lg p-6 border border-border h-full">
+                  <span className="font-display font-bold text-3xl text-vault-cyan/25 block mb-3">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-obsidian font-semibold leading-snug">{section.title}</h3>
+                  {section.content && (
+                    <p className="font-body text-sm text-slate-mid leading-relaxed mt-3">{section.content}</p>
+                  )}
+                  {section.points && section.points.length > 0 && (
+                    <ul className="mt-4 space-y-2">
+                      {section.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5">
+                          <CheckCircle size={14} className="text-vault-cyan mt-0.5 flex-shrink-0" />
+                          <span className="font-body text-sm text-slate-mid leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </AnimatedSection>
             ))}
           </div>
-          <AnimatedSection className="mt-12">
-            <div className="service-card bg-white rounded-lg border border-border p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-alabaster border border-border flex items-center justify-center">
-                  <Layers size={18} className="text-vault-cyan" />
-                </div>
-                <p className="font-body text-sm text-slate-mid">
-                  Need a customized scope? We can tailor this service to your exact business requirements.
-                </p>
-              </div>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90"
-              >
-                Request Custom Proposal
-              </Link>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
     </main>

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import {
-  ArrowRight, Shield, TrendingUp, Users, Award, BookOpen, Building2,
-  CheckCircle, Phone, PieChart, Landmark
+  ArrowRight, CheckCircle, Phone, Check
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { servicesData, homeServiceIds } from "@/data/services";
+import { sectorsData } from "@/data/sectors";
 import heroBg from "@/assets/hero-bg.jpg";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 const aboutTeam = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80";
@@ -17,55 +17,7 @@ const stats = [
   { value: "10+", label: "Years of Excellence", sub: "Established expertise" },
   { value: "500+", label: "Clients Served", sub: "Across all sectors" },
   { value: "3", label: "Expert CA Partners", sub: "Multi-disciplinary team" },
-  { value: "Pan India", label: "Reach", sub: "Domestic & International" },
-];
-
-const industries = [
-  {
-    name: "SMEs & Startups",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-2 md:row-span-2",
-  },
-  {
-    name: "Banking & Finance",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-    icon: Landmark,
-  },
-  {
-    name: "Real Estate",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-    icon: Building2,
-  },
-  {
-    name: "Educational Institutions",
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-    icon: BookOpen,
-  },
-  {
-    name: "Infrastructure",
-    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    name: "Brokerage Houses",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-    icon: TrendingUp,
-  },
-  {
-    name: "NBFC",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-1 md:row-span-1",
-    icon: PieChart,
-  },
-  {
-    name: "Insurance Companies",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80&auto=format&fit=crop",
-    className: "md:col-span-2 md:row-span-1",
-  },
+  { value: "PAN", label: "India", sub: "Practise" },
 ];
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -178,7 +130,7 @@ export default function HomePage() {
               {stats.map((s, i) => (
                 <div
                   key={s.label}
-                  className={`px-8 py-6 ${i < stats.length - 1 ? "border-r border-border" : ""}`}
+                    className={`px-8 py-6 ${i < stats.length - 1 ? "border-r border-border" : ""}`}
                 >
                   <p className="font-display text-3xl lg:text-4xl font-bold text-obsidian">{s.value}</p>
                   <p className="font-body text-sm font-medium text-obsidian mt-0.5">{s.label}</p>
@@ -309,7 +261,14 @@ export default function HomePage() {
                     <svc.icon size={20} className="text-vault-cyan group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-obsidian mb-2 group-hover:text-vault-cyan transition-colors">{svc.title}</h3>
-                  <p className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5">{svc.description}</p>
+                  <ul className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5 space-y-1.5">
+                    {svc.cardPoints.map((point) => (
+                      <li key={point} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-vault-cyan mt-1.5 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <span
                     className="mt-auto inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium hover:gap-3 transition-all"
                   >
@@ -325,7 +284,7 @@ export default function HomePage() {
               to="/services"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
             >
-              View All 8 Service Categories
+              View All {servicesData.length} Service Categories
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </AnimatedSection>
@@ -336,27 +295,36 @@ export default function HomePage() {
       <section id="industries" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="text-center mb-14">
-            <span className="section-label">Industries We Serve</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Our Client Universe</h2>
+            <span className="section-label">Industries We Support</span>
+            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Sectors we serve</h2>
             <p className="font-body text-slate-mid mt-3 max-w-xl mx-auto">
-              VRM successfully caters to clients across diverse sectors. For us, the sky is the limit in understanding the true potential of our clients' businesses.
+              Banks and financial services, service providers, construction and infrastructure, educational institutions, media, and mutual funds.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[220px] gap-5">
-            {industries.map((ind, i) => (
-              <AnimatedSection key={ind.name} delay={i * 0.06} className={ind.className}>
-                <div className="service-card group relative h-full min-h-[220px] rounded-xl overflow-hidden border border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {sectorsData.map((sector, i) => (
+              <AnimatedSection key={sector.title} delay={i * 0.06}>
+                <div className="service-card group relative rounded-xl overflow-hidden border border-border min-h-[320px] flex items-end">
                   <img
-                    src={ind.image}
-                    alt={ind.name}
-                    className="absolute inset-0 z-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src={sector.image}
+                    alt={sector.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Always-on image shading for text legibility */}
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-obsidian/95 via-obsidian/35 to-transparent transition-colors duration-300" />
-                  <div className="relative z-10 h-full flex items-end p-6">
-                    <div>
-                      <p className="font-display font-semibold text-base lg:text-lg text-white text-shadow-strong leading-snug">{ind.name}</p>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/55 to-obsidian/20" />
+                  <div className="relative z-10 p-6 w-full">
+                    {sector.points.length > 0 && (
+                      <ul className="space-y-1.5 mb-4">
+                        {sector.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2">
+                            <Check size={14} className="text-vault-cyan mt-0.5 flex-shrink-0" />
+                            <span className="font-body text-sm text-white/90">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <p className="font-display font-semibold text-lg text-white text-shadow-strong leading-snug">
+                      {sector.title}
+                    </p>
                   </div>
                 </div>
               </AnimatedSection>
