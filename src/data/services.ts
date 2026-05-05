@@ -56,7 +56,7 @@ export const servicesData: ServiceData[] = [
     description:
       "we are also providing comprehensive regulatory compliance assistance overseen by SEBI for a wide array of financial entities. We offer tailored support to ensure your operations remain in line with the latest regulatory mandates.",
     icon: FileText,
-    cardPoints: ["Stocke Brokers", "Depository Participants", "Research Analyst", "Investment Advisors"],
+    cardPoints: ["Stock Brokers", "Depository Participants", "Research Analyst", "Investment Advisors"],
     detailSections: [
       {
         title: "Overview",
@@ -66,7 +66,7 @@ export const servicesData: ServiceData[] = [
       {
         title: "Service Scope",
         points: [
-          "Stocke Brokers: regulatory compliance as per SEBI & Exchange includes compliance with trading practices, reporting standards, and ethical conduct",
+          "Stock Brokers: regulatory compliance as per SEBI & Exchange includes compliance with trading practices, reporting standards, and ethical conduct",
           "Depository Participants: Guidance on regulations govern by NSDL & CDSL, Record-keeping, compliances of client onboarding, KYC (Know Your Customer) processe",
           "Research Analyst",
           "Investment Advisors",

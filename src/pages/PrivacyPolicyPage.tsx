@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="font-display text-2xl font-bold text-obsidian">1. Introduction</h2>
             <p className="font-body text-slate-mid leading-relaxed">
-              Virendra RM & Associates ("VRM", "we", "our", or "us") is committed to protecting your privacy and ensuring that your personal data is handled securely and in accordance with applicable Indian laws. This Privacy Policy outlines how we collect, use, and safeguard personal information obtained through our website and interactions.
+              Virendra R M & Associates ("VRM", "we", "our", or "us") is committed to protecting your privacy and ensuring that your personal data is handled securely and in accordance with applicable Indian laws. This Privacy Policy outlines how we collect, use, and safeguard personal information obtained through our website and interactions.
             </p>
           </section>
 
@@ -82,10 +82,10 @@ export default function PrivacyPolicyPage() {
               If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:
             </p>
             <div className="bg-alabaster p-4 rounded-lg border border-border mt-4">
-              <p className="font-display font-semibold text-obsidian">Virendra RM & Associates</p>
+              <p className="font-display font-semibold text-obsidian">Virendra R M & Associates</p>
               <p className="font-body text-slate-mid text-sm mt-1">002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4, Mira Road East, Thane 401107</p>
               <p className="font-body text-slate-mid text-sm mt-1">Phone: +91 77770 67692</p>
-              <p className="font-body text-slate-mid text-sm mt-1">Email: virendra@vrmca.in</p>
+              <p className="font-body text-slate-mid text-sm mt-1">Email: office@vrmca.in</p>
             </div>
           </section>
         </AnimatedSection>

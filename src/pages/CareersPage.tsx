@@ -235,7 +235,7 @@ export default function CareersPage() {
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <p className="font-body text-slate-50 leading-relaxed">
-                At Virendra RM & Associates, we are committed to building a team that reflects the diversity of the clients we serve. We do not discriminate based on caste, religion, gender, age, or disability. Every candidate is evaluated solely on their professional merit, attitude, and alignment with our firm's core values.
+                At Virendra R M & Associates, we are committed to building a team that reflects the diversity of the clients we serve. We do not discriminate based on caste, religion, gender, age, or disability. Every candidate is evaluated solely on their professional merit, attitude, and alignment with our firm's core values.
               </p>
               <p className="font-body text-slate-50 leading-relaxed mt-4">
                 We actively encourage applications from women, differently-abled individuals, and candidates from all backgrounds. At VRM, your talent and dedication are what matter.
@@ -287,10 +287,10 @@ export default function CareersPage() {
               <div className="mt-8 bg-white border border-border rounded-lg p-5">
                 <p className="font-body text-xs text-slate-light">For direct queries about opportunities:</p>
                 <a
-                  href="mailto:virendra@vrmca.in"
+                  href="mailto:office@vrmca.in"
                   className="font-body text-sm text-vault-cyan hover:underline mt-1 block"
                 >
-                  virendra@vrmca.in
+                  office@vrmca.in
                 </a>
               </div>
             </AnimatedSection>

@@ -143,17 +143,18 @@ export default function AboutPage() {
             <AnimatedSection className="lg:col-span-3" delay={0.1}>
               <div className="space-y-6 font-body text-base text-slate-mid leading-relaxed">
                 <p>
-                  VIRENDRA R M & Associates (VRM) firm is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services.
+                  VIRENDRA R M & Associates (VRM) firm is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services. We offer bouquet of services under one roof. The Firm provides holistic and implementable advice to clients.
                 </p>
                 <p>
                   The team at the firm has dedicated and experienced professionals and associates like Chartered Accountants, Company Secretary and consultants to provide end-to-end services to your business.
                 </p>
                 <p>
-                  Our objective is to help our clients to focus on and achieve their business and financial goals by providing them services that are personalized and tailored to meet our clients' requirements. Over the years, we have managed to earn the trust of our worthy clients.
+                  Our objective is to help our clients to focus on and achieve their business and financial goals by providing them services that are personalized and tailored to meet our clients' requirements. We invest in building and nurturing client relationships. Our legacy has been built as we grew along with clients as their strategic solution providers.
                 </p>
                 <p>
                   Our firm is successfully catering to various clients across industries like Banking & Finance, Educational Institutions, Real Estate and Infrastructure, Brokers etc. For us, sky is the limit in understanding the true potential of our clients' businesses so as to achieve their business and financial goals.
                 </p>
+                <p>With our strong emphasis on quality, communication and collaboration we are committed to bringing in the best for our clients now and in future.</p>
               </div>
 
               <div className="mt-10 grid grid-cols-3 gap-6 pt-10 border-t border-border">
@@ -312,67 +313,6 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
-
-      {/* ——— INDUSTRIES — IMAGE BENTO GRID ——— */}
-      <section className="py-24 bg-alabaster relative overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="about-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="hsl(197 75% 37%)" strokeWidth="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#about-grid)" />
-          </svg>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-          <AnimatedSection className="mb-12">
-            <span className="section-label">Industries We Support</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Sectors we serve</h2>
-            <p className="font-body text-slate-mid mt-3 max-w-xl leading-relaxed">
-              Banks and financial services, service providers, construction and infrastructure, educational institutions, media, and mutual funds.
-            </p>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {sectorsData.map((sector, i) => (
-              <AnimatedSection key={sector.title} delay={i * 0.06}>
-                <div className="service-card group relative rounded-xl overflow-hidden border border-border min-h-[320px] flex items-end">
-                  <img
-                    src={sector.image}
-                    alt={sector.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/55 to-obsidian/20" />
-                  <div className="relative z-10 p-6 w-full">
-                    {sector.points.length > 0 && (
-                      <ul className="space-y-1.5 mb-4">
-                        {sector.points.map((point) => (
-                          <li key={point} className="flex items-start gap-2">
-                            <Check size={14} className="text-vault-cyan mt-0.5 flex-shrink-0" />
-                            <span className="font-body text-sm text-white/90">{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <p className="font-display font-semibold text-lg text-white text-shadow-strong leading-snug">
-                      {sector.title}
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <AnimatedSection className="mt-12">
-            <Link
-              to="/team"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg"
-            >
-              Meet Our Expert Team <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
     </main>

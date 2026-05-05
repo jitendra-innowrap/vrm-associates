@@ -31,7 +31,7 @@ export async function sendContactEnquiry(data: ContactEnquiryData) {
   // 1. Internal notification to VRM staff
   await resend.emails.send({
     from: "VRM Website <noreply@vrmca.in>",
-    to: ["virendra@vrmca.in", "priya@vrmca.in"],
+    to: ["office@vrmca.in"],
     replyTo: data.email,
     subject: `New Contact Enquiry from ${data.name}`,
     html: contactEnquiryEmailHtml(data),
@@ -71,7 +71,7 @@ export async function sendJobApplication(
   // 1. Internal notification with resume attached
   await resend.emails.send({
     from: "VRM Careers <noreply@vrmca.in>",
-    to: ["virendra@vrmca.in"],
+    to: ["office@vrmca.in"],
     replyTo: data.email,
     subject: `New Application: ${data.firstName} ${data.lastName}`,
     html: jobApplicationEmailHtml(data),

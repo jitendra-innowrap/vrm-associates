@@ -33,7 +33,7 @@ export default function TermsOfServicePage() {
           <section className="space-y-4">
             <h2 className="font-display text-2xl font-bold text-obsidian">1. Acceptance of Terms</h2>
             <p className="font-body text-slate-mid leading-relaxed">
-              By accessing and using the website of Virendra RM & Associates ("VRM"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by these terms, please do not use this website.
+              By accessing and using the website of Virendra R M & Associates ("VRM"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by these terms, please do not use this website.
             </p>
           </section>
 
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
           <section className="space-y-4">
             <h2 className="font-display text-2xl font-bold text-obsidian">3. Intellectual Property</h2>
             <p className="font-body text-slate-mid leading-relaxed">
-              The content published on this website (digital downloads, images, texts, graphics, logos) is the property of Virendra RM & Associates and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website is the exclusive property of VRM. You may not reproduce, duplicate, copy, or otherwise exploit material on our website for a commercial purpose without our express written consent.
+              The content published on this website (digital downloads, images, texts, graphics, logos) is the property of Virendra R M & Associates and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website is the exclusive property of VRM. You may not reproduce, duplicate, copy, or otherwise exploit material on our website for a commercial purpose without our express written consent.
             </p>
           </section>
 
@@ -61,7 +61,7 @@ export default function TermsOfServicePage() {
           <section className="space-y-4">
             <h2 className="font-display text-2xl font-bold text-obsidian">5. Limitation of Liability</h2>
             <p className="font-body text-slate-mid leading-relaxed">
-              In no event shall Virendra RM & Associates, nor any of its partners, managers, or employees, be liable for any direct, indirect, special, incidental, or consequential damages arising out of or in connection with the use or inability to use the information and materials provided on this website. 
+              In no event shall Virendra R M & Associates, nor any of its partners, managers, or employees, be liable for any direct, indirect, special, incidental, or consequential damages arising out of or in connection with the use or inability to use the information and materials provided on this website. 
             </p>
           </section>
 

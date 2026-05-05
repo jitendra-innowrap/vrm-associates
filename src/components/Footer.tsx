@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Phone, Mail, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -130,12 +131,13 @@ function GetInTouchForm() {
             <SelectValue placeholder="Select a Service" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="audit">Audit & Assurance</SelectItem>
-            <SelectItem value="tax">Direct Tax</SelectItem>
-            <SelectItem value="gst">GST Services</SelectItem>
-            <SelectItem value="advisory">Advisory</SelectItem>
-            <SelectItem value="company-law">Company Law</SelectItem>
-            <SelectItem value="virtual-cfo">Virtual CFO</SelectItem>
+            <SelectItem value="audit-and-assurance">Audit and Assurance</SelectItem>
+            <SelectItem value="compliance-assistance">Compliance Assistance</SelectItem>
+            <SelectItem value="tax-solution">Tax Solution</SelectItem>
+            <SelectItem value="book-keeping">Book keeping</SelectItem>
+            <SelectItem value="business-set-up">Business set up</SelectItem>
+            <SelectItem value="company-law-mattes">Company law matters</SelectItem>
+            <SelectItem value="value-added-services">Value added services</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -162,6 +164,8 @@ function GetInTouchForm() {
 
 export default function Footer() {
   const { ref, inView } = useScrollReveal();
+  const location = useLocation();
+  const showFooterCtaForm = !["/contact", "/careers"].includes(location.pathname);
 
   return (
     <footer className="bg-alabaster relative overflow-hidden border-t border-border">
@@ -182,54 +186,57 @@ export default function Footer() {
       </div>
 
       {/* Get in Touch Section */}
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7 }}
-        className="border-b border-border/80 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2">
-            <span className="section-label">Let's Talk</span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-obsidian mt-3 leading-tight">
-              Get in Touch
-            </h2>
-            <p className="font-body text-slate-mid mt-4 leading-relaxed">
-              Tell us about your financial goals and compliance needs. Our team will respond within one business day.
-            </p>
-            <div className="mt-8 space-y-4">
-              <a
-                href="tel:+917777067692"
-                className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
-              >
-                <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
-                  <Phone size={14} className="text-vault-cyan" />
+      {showFooterCtaForm && (
+        <motion.div
+          id="footer-get-in-touch"
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="border-b border-border/80 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            <div className="lg:col-span-2">
+              <span className="section-label">Let's Talk</span>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold text-obsidian mt-3 leading-tight">
+                Get in Touch
+              </h2>
+              <p className="font-body text-slate-mid mt-4 leading-relaxed">
+                Tell us about your financial goals and compliance needs. Our team will respond within one business day.
+              </p>
+              <div className="mt-8 space-y-4">
+                <a
+                  href="tel:+91777706692"
+                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
+                    <Phone size={14} className="text-vault-cyan" />
+                  </div>
+                  +91 777706692
+                </a>
+                <a
+                  href="mailto:office@vrmca.in"
+                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
+                    <Mail size={14} className="text-vault-cyan" />
+                  </div>
+                  office@vrmca.in
+                </a>
+                <div className="flex items-start gap-3 text-slate-mid font-body text-sm">
+                  <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin size={14} className="text-vault-cyan" />
+                  </div>
+                  002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4, Mira Road East, Thane 401107
                 </div>
-                +91 7777067692 / 9029509228
-              </a>
-              <a
-                href="mailto:virendra@vrmca.in"
-                className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
-              >
-                <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
-                  <Mail size={14} className="text-vault-cyan" />
-                </div>
-                virendra@vrmca.in
-              </a>
-              <div className="flex items-start gap-3 text-slate-mid font-body text-sm">
-                <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin size={14} className="text-vault-cyan" />
-                </div>
-                002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4, Mira Road East, Thane 401107
               </div>
             </div>
+            <div className="lg:col-span-3">
+              <GetInTouchForm />
+            </div>
           </div>
-          <div className="lg:col-span-3">
-            <GetInTouchForm />
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Footer bottom */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
@@ -240,21 +247,21 @@ export default function Footer() {
               <BrandLogo />
             </Link>
             <p className="font-body text-sm text-slate-mid leading-relaxed max-w-xs">
-              Virendra RM & Associates — Chartered Accountants. Your trusted partner in growth, compliance, and financial excellence.
+              Virendra R M & Associates — Chartered Accountants. Your trusted partner in growth, compliance, and financial excellence.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="tel:+917777067692"
+                href="tel:+91777706692"
                 className="inline-flex items-center gap-2 text-xs font-body text-slate-mid hover:text-vault-cyan transition-colors"
               >
-                <Phone size={12} className="text-vault-cyan" /> +91 7777067692
+                <Phone size={12} className="text-vault-cyan" /> +91 777706692
               </a>
               <span className="text-border">·</span>
               <a
-                href="mailto:virendra@vrmca.in"
+                href="mailto:office@vrmca.in"
                 className="inline-flex items-center gap-2 text-xs font-body text-slate-mid hover:text-vault-cyan transition-colors"
               >
-                <ExternalLink size={12} className="text-vault-cyan" /> virendra@vrmca.in
+                <ExternalLink size={12} className="text-vault-cyan" /> office@vrmca.in
               </a>
             </div>
           </div>
@@ -280,12 +287,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-border flex items-center justify-center">
           <p className="font-body text-xs text-slate-light">
-            © {new Date().getFullYear()} Virendra RM & Associates. All rights reserved. | CA Firm Mira Road, Mumbai.
-          </p>
-          <p className="font-body text-xs text-slate-light">
-            Serving clients across Mumbai, Mira Road & Pan India
+            © {new Date().getFullYear()} Virendra R M & Associates. All rights reserved.
           </p>
         </div>
       </div>

@@ -97,13 +97,13 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-wrap gap-6 mt-8">
               <a
-                href="tel:+917777067692"
+                href="tel:+91777706692"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90"
               >
-                <Phone size={15} /> Call Now: +91 7777067692
+                <Phone size={15} /> Call Now: +91 777706692
               </a>
               <a
-                href="mailto:virendra@vrmca.in"
+                href="mailto:office@vrmca.in"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-border font-display font-medium text-sm rounded-sm transition-all border-vault-cyan text-vault-cyan"
               >
                 <Mail size={15} /> Email Us
@@ -121,13 +121,13 @@ export default function ContactPage() {
               {
                 icon: Phone,
                 title: "Call Us",
-                lines: ["+91 7777067692", "+91 9029509228"],
+                lines: ["+91 777706692"],
                 sub: "Mon–Sat: 10 AM – 7 PM",
               },
               {
                 icon: Mail,
                 title: "Email Us",
-                lines: ["virendra@vrmca.in", "priya@vrmca.in"],
+                lines: ["office@vrmca.in"],
                 sub: "Response within 1 business day",
               },
               {
@@ -219,10 +219,10 @@ export default function ContactPage() {
                     Call us directly for time-sensitive compliance or tax matters.
                   </p>
                   <a
-                    href="tel:+917777067692"
+                    href="tel:+91777706692"
                     className="inline-flex items-center gap-2 text-vault-cyan font-body text-sm hover:gap-3 transition-all"
                   >
-                    +91 7777067692 <ArrowRight size={12} />
+                    +91 777706692 <ArrowRight size={12} />
                   </a>
                 </div>
               </div>

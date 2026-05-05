@@ -7,6 +7,7 @@ const heroBackdrop = "https://images.unsplash.com/photo-1521737604893-d14cc237f1
 
 import caVirendra from "@/assets/ca-virendra-DpFgvJoN.jpg";
 import caPriya from "@/assets/ca-priya-C5CTwqwN.jpg";
+const caAdvisoryLead = "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&q=80";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -30,8 +31,8 @@ const teamMembers = [
     credentials: "B.Com",
     experience: "10+ Years",
     photo: caVirendra,
-    bio: "With 10+ years of experience, Virendra Mishra, the Founding and Managing Partner of VRM, has been the visionary driving force behind the firm's establishment and growth. His expertise spans strategic leadership, tax advisory, and corporate finance. His dedication to building long-term client relationships and creating innovative solutions has transformed the firm into a leading professional services practice.",
-    contact: "virendra@vrmca.in",
+    bio: "With 10+ years of experience, Virendra Mishra, the Founding and Managing Partner of VRM, has been the visionary driving force behind the firm's establishment and growth. His expertise spans strategic leadership, tax advisory, and corporate finance. His dedication to building long-term client relationships and creating innovative solutions has transformed the firm into a leading professional services practice. He specializes in areas of Direct and Indirect taxes including representation before revenue authorities.",
+    contact: "office@vrmca.in",
   },
   {
     name: "CA Priya Mishra",
@@ -40,7 +41,16 @@ const teamMembers = [
     experience: "10+ Years",
     photo: caPriya,
     bio: "She specializes in Assurance services to the BFSI sector and brings expertise in conducting audits of PMS companies, NBFC compliance, Stock Brokers, Research Analyst and Investment Advisors. Prior to joining the firm, she was associated with one of the leading stock brokers. She also specializes in management and operational audits, designing Standard Operating Procedures, and managing risk-based internal audits across industries.",
-    contact: "priya@vrmca.in",
+    contact: "office@vrmca.in",
+  },
+  {
+    name: "CA Naman",
+    designation: "Partner - Taxation & Business Advisory",
+    credentials: "B.Com, FCA",
+    experience: "10+ Years",
+    photo: caAdvisoryLead,
+    bio: "A Chartered Accountant based in Mumbai with over 10 years of experience consulting Small and Medium Businesses (SMEs) across Taxation, GST, Banking, and day-to-day Business Management. He specializes in delivering practical business solutions and cost optimization through a holistic approach, backed by strong expertise in Domestic and International Taxation, GST, Audit and Assurance, Accounting, and Advisory services.",
+    contact: "office@vrmca.in",
   },
 ];
 
@@ -52,6 +62,8 @@ const whyVrmPoints = [
   { title: "Compliance Assurance", desc: "Stay ahead of regulations, avoiding costly penalties." },
   { title: "Tax Planning", desc: "Maximize profits with tailored tax strategies and precise bookkeeping." },
   { title: "Smooth Business Set up", desc: "Navigate the complexities of starting a business with ease." },
+  { title: "Confidentiality Focus", desc: "We prioritize your privacy with strict data security measures, ensuring all your financial and business information remains protected at every step." },
+  { title: "Proactive Advisory", desc: "Beyond compliance, we provide forward-thinking advisory, helping you anticipate market trends and drive sustainable growth." },
 ];
 
 function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; index: number }) {
@@ -197,7 +209,7 @@ export default function TeamPage() {
       {/* ——— TEAM CARDS ——— */}
       <section className="py-20 bg-alabaster">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}
@@ -211,10 +223,10 @@ export default function TeamPage() {
           <AnimatedSection className="mb-14">
             <span className="section-label">Why VRM?</span>
             <h2 className="font-display text-4xl font-bold text-obsidian mt-3">
-              Why VRM?
+            Multi-Disciplinary
             </h2>
             <p className="font-body text-slate-mid mt-3 max-w-lg leading-relaxed">
-              One-stop business support with compliance assurance, tax planning, and smooth business setup.
+            CA, CS and business consultants under one roof — covering audit, tax, company law, and advisory.
             </p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

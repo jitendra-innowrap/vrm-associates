@@ -9,6 +9,22 @@ import { sectorsData } from "@/data/sectors";
 import heroBg from "@/assets/hero-bg.jpg";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 const aboutTeam = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80";
+const serviceCardImages: Record<string, string> = {
+  "audit-and-assurance":
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+  "compliance-assistance":
+    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200&q=80",
+  "tax-solution":
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+  "book-keeping":
+    "https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=1200&q=80",
+  "business-set-up":
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+  "company-law-mattes":
+    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80",
+  "value-added-services":
+    "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
+};
 const homeServices = homeServiceIds
   .map((id) => servicesData.find((service) => service.id === id))
   .filter((service): service is NonNullable<typeof service> => Boolean(service));
@@ -78,7 +94,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.35 }}
               className="font-body text-lg text-white/85 text-shadow-soft mt-7 leading-relaxed max-w-xl"
             >
-              Virendra RM & Associates (VRM) is a professionally managed CA firm catering to domestic and international clients with a broad range of services in taxation, regulatory and advisory matters.
+              Virendra R M & Associates (VRM) is a professionally managed CA firm catering to domestic and international clients with a broad range of services in taxation, regulatory and advisory matters.
             </motion.p>
 
             <motion.div
@@ -183,7 +199,7 @@ export default function HomePage() {
               </h2>
               <span className="cyan-rule mt-5 mb-5 block" />
               <p className="font-body text-base text-slate-mid leading-relaxed">
-                VIRENDRA RM & Associates (VRM) is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services.
+                VIRENDRA RM & Associates (VRM) is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services. We offer bouquet of services under one roof. The Firm provides holistic and implementable advice to clients.
               </p>
               <p className="font-body text-base text-slate-mid leading-relaxed mt-4">
                 Our team comprises dedicated Chartered Accountants, Company Secretaries, and consultants providing end-to-end services. Our objective is to help clients focus on and achieve their business and financial goals through personalized, tailored services.
@@ -256,24 +272,26 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {homeServices.map((svc, i) => (
               <AnimatedSection key={svc.title} delay={i * 0.07}>
-                <Link to={`/services/${svc.id}`} className="service-card bg-white rounded-lg p-8 border border-border h-full flex flex-col group">
-                  <div className="w-12 h-12 rounded-lg bg-alabaster flex items-center justify-center mb-5 border border-border group-hover:bg-vault-cyan group-hover:border-vault-cyan transition-all duration-300">
-                    <svc.icon size={20} className="text-vault-cyan group-hover:text-white transition-colors duration-300" />
+                <Link to={`/services/${svc.id}`} className="service-card bg-white rounded-lg border border-border h-full flex flex-col overflow-hidden group">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-border">
+                    <img
+                      src={serviceCardImages[svc.id]}
+                      alt={`${svc.title} service`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 via-transparent to-transparent opacity-80" />
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-obsidian mb-2 group-hover:text-vault-cyan transition-colors">{svc.title}</h3>
-                  <ul className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5 space-y-1.5">
-                    {svc.cardPoints.map((point) => (
-                      <li key={point} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-vault-cyan mt-1.5 flex-shrink-0" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-display text-lg font-semibold text-obsidian mb-2 group-hover:text-vault-cyan transition-colors">{svc.title}</h3>
+                    <p className="font-body text-sm text-slate-mid leading-relaxed flex-1 mb-5 xl:line-clamp-3">
+                      {svc.description}
+                    </p>
                   <span
                     className="mt-auto inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium hover:gap-3 transition-all"
                   >
                     Explore this service <ArrowRight size={12} />
                   </span>
+                  </div>
                 </Link>
               </AnimatedSection>
             ))}
@@ -333,82 +351,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ——— READY TO BEGIN CTA ——— */}
-      <section className="relative overflow-hidden bg-white border-t border-border">
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-alabaster to-transparent pointer-events-none" />
-        {/* Geometric SVG background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Large circle arcs */}
-          <svg className="absolute -right-24 -top-24 w-[600px] h-[600px] opacity-[0.06]" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="600" cy="0" r="400" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="300" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="200" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-            <circle cx="600" cy="0" r="100" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-          </svg>
-          {/* Bottom-left arcs */}
-          <svg className="absolute -left-24 -bottom-24 w-[400px] h-[400px] opacity-[0.04]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="0" cy="400" r="300" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-            <circle cx="0" cy="400" r="200" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-          </svg>
-          {/* Diagonal lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="diag" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="40" stroke="hsl(27 87% 44%)" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#diag)" />
-          </svg>
-          {/* Cyan glow blob top-right */}
-          <div className="absolute top-0 right-0 w-96 h-96 opacity-20"
-            style={{ background: "radial-gradient(circle, hsl(27 87% 44% / 0.32) 0%, transparent 70%)" }} />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection>
-              <span className="section-label">Ready to Begin?</span>
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-obsidian mt-4 leading-tight">
-              Your financial clarity starts with one conversation.
-              </h2>
-              <p className="font-body text-slate-mid mt-5 text-base leading-relaxed">
-              Do you have any query?
-              </p>
-              <div className="flex flex-wrap gap-4 mt-9">
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/30"
-                >
-                  Contact Us <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <a
-                  href="tel:+917777067692"
-                  className="inline-flex items-center gap-2 px-8 py-4 border border-border text-obsidian font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan"
-                >
-                  <Phone size={15} />
-                  +91 7777067692
-                </a>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.15}>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { label: "Call Us", value: "+91 7777067692 / 9029509228", sub: "Mon–Sat, 10 AM – 7 PM" },
-                  { label: "Email Us", value: "virendra@vrmca.in / priya@vrmca.in", sub: "Response within 1 business day" },
-                  { label: "Visit Us", value: "Mira Road East, Thane 401107", sub: "002, Bldg C-8 Prahlad CHS, Shanti Nagar Sector 4" },
-                ].map((info) => (
-                  <div key={info.label} className="bg-white/80 border border-border rounded-lg p-5 hover:border-vault-cyan/40 transition-colors shadow-sm">
-                    <p className="font-body text-xs text-vault-cyan uppercase tracking-wider font-medium">{info.label}</p>
-                    <p className="font-display font-semibold text-obsidian mt-1 text-sm">{info.value}</p>
-                    <p className="font-body text-xs text-slate-light mt-0.5">{info.sub}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

@@ -76,7 +76,7 @@ export function contactEnquiryEmailHtml(data: ContactEnquiryData): string {
                           </div>
                         </td>
                         <td style="vertical-align:middle;">
-                          <span style="font-family:'Space Grotesk',Arial,sans-serif;font-size:18px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;display:block;line-height:1.1;">Virendra RM &amp; Associates</span>
+                          <span style="font-family:'Space Grotesk',Arial,sans-serif;font-size:18px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;display:block;line-height:1.1;">Virendra R M &amp; Associates</span>
                           <span style="font-family:'Inter',Arial,sans-serif;font-size:11px;color:#94A3B8;letter-spacing:0.8px;text-transform:uppercase;">Chartered Accountants</span>
                         </td>
                       </tr>
@@ -177,16 +177,16 @@ export function contactEnquiryEmailHtml(data: ContactEnquiryData): string {
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <p style="margin:0 0 4px;font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;">Virendra RM &amp; Associates</p>
+                    <p style="margin:0 0 4px;font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;">Virendra R M &amp; Associates</p>
                     <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;line-height:1.6;">
                       002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4,<br/>Mira Road East, Thane 401107
                     </p>
                   </td>
                   <td align="right" style="vertical-align:top;">
                     <p style="margin:0 0 2px;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;">
-                      <a href="mailto:virendra@vrmca.in" style="color:#0891B2;text-decoration:none;">virendra@vrmca.in</a>
+                      <a href="mailto:office@vrmca.in" style="color:#0891B2;text-decoration:none;">office@vrmca.in</a>
                     </p>
-                    <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;">+91 7777067692</p>
+                    <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;">+91 777706692</p>
                   </td>
                 </tr>
                 <tr>
@@ -242,7 +242,7 @@ export function contactAutoReplyHtml(data: ContactEnquiryData): string {
                           </div>
                         </td>
                         <td style="vertical-align:middle;">
-                          <span style="font-family:'Space Grotesk',Arial,sans-serif;font-size:18px;font-weight:700;color:#ffffff;display:block;line-height:1.1;">Virendra RM &amp; Associates</span>
+                          <span style="font-family:'Space Grotesk',Arial,sans-serif;font-size:18px;font-weight:700;color:#ffffff;display:block;line-height:1.1;">Virendra R M &amp; Associates</span>
                           <span style="font-family:'Inter',Arial,sans-serif;font-size:11px;color:#94A3B8;letter-spacing:0.8px;text-transform:uppercase;">Chartered Accountants</span>
                         </td>
                       </tr>
@@ -318,9 +318,9 @@ export function contactAutoReplyHtml(data: ContactEnquiryData): string {
 
               <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#64748B;line-height:1.6;">
                 For urgent matters, please call us directly at
-                <a href="tel:+917777067692" style="color:#0891B2;text-decoration:none;font-weight:500;">+91 7777067692</a>
+                <a href="tel:+91777706692" style="color:#0891B2;text-decoration:none;font-weight:500;">+91 777706692</a>
                 or email
-                <a href="mailto:virendra@vrmca.in" style="color:#0891B2;text-decoration:none;font-weight:500;">virendra@vrmca.in</a>.
+                <a href="mailto:office@vrmca.in" style="color:#0891B2;text-decoration:none;font-weight:500;">office@vrmca.in</a>.
               </p>
             </td>
           </tr>
@@ -331,23 +331,23 @@ export function contactAutoReplyHtml(data: ContactEnquiryData): string {
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <p style="margin:0 0 4px;font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;">Virendra RM &amp; Associates</p>
+                    <p style="margin:0 0 4px;font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;">Virendra R M &amp; Associates</p>
                     <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;line-height:1.6;">
                       002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4,<br/>Mira Road East, Thane 401107
                     </p>
                   </td>
                   <td align="right" style="vertical-align:top;">
                     <p style="margin:0 0 2px;font-family:'Inter',Arial,sans-serif;font-size:12px;">
-                      <a href="mailto:virendra@vrmca.in" style="color:#0891B2;text-decoration:none;">virendra@vrmca.in</a>
+                      <a href="mailto:office@vrmca.in" style="color:#0891B2;text-decoration:none;">office@vrmca.in</a>
                     </p>
-                    <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;">+91 7777067692</p>
+                    <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:12px;color:#64748B;">+91 777706692</p>
                   </td>
                 </tr>
                 <tr>
                   <td colspan="2" style="padding-top:16px;">
                     <div style="height:1px;background-color:rgba(255,255,255,0.06);"></div>
                     <p style="margin:12px 0 0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:#475569;text-align:center;">
-                      © ${new Date().getFullYear()} Virendra RM &amp; Associates. All rights reserved.<br/>
+                      © ${new Date().getFullYear()} Virendra R M &amp; Associates. All rights reserved.<br/>
                       This email was sent because you submitted an enquiry on our website.
                     </p>
                   </td>
@@ -385,7 +385,7 @@ Message:
 ${data.message}
 
 =====================================
-Virendra RM & Associates | +91 7777067692 | virendra@vrmca.in
+Virendra R M & Associates | +91 777706692 | office@vrmca.in
   `.trim();
 }
 
@@ -397,11 +397,11 @@ Hi ${data.name.split(" ")[0]},
 Thank you for reaching out to VRM Associates. We have received your enquiry
 and will respond within one business day.
 
-For urgent matters, please call us at +91 7777067692.
+For urgent matters, please call us at +91 777706692.
 
 Warm regards,
 Team VRM Associates
-virendra@vrmca.in | +91 7777067692
+office@vrmca.in | +91 777706692
   `.trim();
 }
 

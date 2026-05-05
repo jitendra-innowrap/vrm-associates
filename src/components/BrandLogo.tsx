@@ -1,4 +1,4 @@
-import caIcon from "@/assets/ca-icon.png";
+import caIcon from "@/assets/CA India Logo.png";
 
 type BrandLogoProps = {
   isLight?: boolean;
@@ -18,17 +18,17 @@ export default function BrandLogo({ isLight = false, compact = false }: BrandLog
           <img
             src={caIcon}
             alt="CA logo icon"
-            className="w-full h-full object-cover scale-[1.26] -translate-y-[16%]"
+            className="w-full h-full object-cover scale-[1.26] translate-y-[4%]"
           />
         </span>
-        <span className={`font-body font-semibold uppercase translate-y-1 tracking-[0.22em] leading-none mt-0.5 ${compact ? "text-[8px]" : "text-[9px]"} ${iconSubTextClass}`}>
+        {/* <span className={`font-body font-semibold uppercase translate-y-1 tracking-[0.22em] leading-none mt-0.5 ${compact ? "text-[8px]" : "text-[9px]"} ${iconSubTextClass}`}>
           India
-        </span>
+        </span> */}
       </span>
 
       <span className="flex flex-col leading-tight">
         <span className={`font-display font-bold tracking-tight ${compact ? "text-base" : "text-lg"} ${primaryTextClass}`}>
-          Virendra RM <span className="text-vault-cyan">&</span> Associates LLP
+          Virendra R M <span className="text-vault-cyan">&</span> Associates LLP
         </span>
         <span className={`h-px ${dividerClass} my-0.5 w-full`} />
         <span className={`font-body uppercase text-center tracking-[0.42em] ${compact ? "text-[9px]" : "text-[10px]"} ${secondaryTextClass}`}>

@@ -39,7 +39,7 @@ export default function DisclaimerPage() {
               Pursuant to the rules formulated by the Institute of Chartered Accountants of India (ICAI), Chartered Accountants are not permitted to solicit work and advertise in any manner.
             </p>
             <p className="font-body text-slate-mid leading-relaxed">
-              By accessing this website (<strong className="font-bold">vrmca.in</strong> or its subsidiaries), the user fully accepts that they are seeking information of their own accord and volition and that no form of solicitation has taken place by Virendra RM & Associates (VRM) or its partners.
+              By accessing this website (<strong className="font-bold">vrmca.in</strong> or its subsidiaries), the user fully accepts that they are seeking information of their own accord and volition and that no form of solicitation has taken place by Virendra R M & Associates (VRM) or its partners.
             </p>
           </section>
 
@@ -66,7 +66,7 @@ export default function DisclaimerPage() {
           <section className="space-y-4">
             <h2 className="font-display text-2xl font-bold text-obsidian">External Links</h2>
             <p className="font-body text-slate-mid leading-relaxed">
-              This website may contain links to diverse external, third-party sites that are not provided or maintained by or in any way affiliated with Virendra RM & Associates. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
+              This website may contain links to diverse external, third-party sites that are not provided or maintained by or in any way affiliated with Virendra R M & Associates. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
             </p>
           </section>
         </AnimatedSection>

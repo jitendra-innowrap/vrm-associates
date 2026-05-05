@@ -48,6 +48,25 @@ export default function Navbar() {
     });
   };
 
+  const handleGetInTouchClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const footerCtaHiddenOnPage = ["/contact", "/careers"].includes(location.pathname);
+
+    if (footerCtaHiddenOnPage) {
+      navigate("/#footer-get-in-touch");
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      const section = document.getElementById("footer-get-in-touch");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        navigate("/#footer-get-in-touch");
+      }
+    });
+  };
+
   return (
     <>
       <header
@@ -117,7 +136,8 @@ export default function Navbar() {
               Brochure
             </a>
             <a
-              href="/contact"
+              href="/#footer-get-in-touch"
+              onClick={handleGetInTouchClick}
               className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-display font-medium text-sm rounded transition-all duration-200 hover:shadow-md ${isOpaque
                   ? "bg-vault-cyan text-white hover:bg-vault-cyan/90"
                   : "bg-white/15 text-white border border-white/30 hover:bg-white/25 backdrop-blur-sm"
@@ -174,7 +194,8 @@ export default function Navbar() {
               ))}
               <li className="pt-4">
                 <a
-                  href="/contact"
+                  href="/#footer-get-in-touch"
+                  onClick={handleGetInTouchClick}
                   className="block w-full text-center px-5 py-3 bg-vault-cyan text-white font-display font-medium text-sm rounded hover:bg-vault-cyan/90 transition-colors"
                 >
                   Get in Touch

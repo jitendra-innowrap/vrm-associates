@@ -158,14 +158,6 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <AnimatedSection className="mt-14 text-center">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
-            >
-              Book a Free Consultation <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
     </main>
