@@ -315,14 +315,13 @@ export default function ContactPage() {
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="audit">Audit & Assurance</SelectItem>
-                            <SelectItem value="tax">Direct Tax Services</SelectItem>
-                            <SelectItem value="gst">GST Services</SelectItem>
-                            <SelectItem value="advisory">Advisory Services</SelectItem>
-                            <SelectItem value="company-law">Company Law Matters</SelectItem>
-                            <SelectItem value="llp">LLP Services</SelectItem>
-                            <SelectItem value="bookkeeping">Bookkeeping</SelectItem>
-                            <SelectItem value="virtual-cfo">Virtual CFO / Office</SelectItem>
+                            <SelectItem value="audit-and-assurance">Audit and Assurance</SelectItem>
+                            <SelectItem value="compliance-assistance">Compliance Assistance</SelectItem>
+                            <SelectItem value="tax-solution">Tax Solution</SelectItem>
+                            <SelectItem value="book-keeping">Book keeping</SelectItem>
+                            <SelectItem value="business-set-up">Business set up</SelectItem>
+                            <SelectItem value="company-law-mattes">Company law matters</SelectItem>
+                            <SelectItem value="value-added-services">Value added services</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
