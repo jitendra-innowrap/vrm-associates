@@ -199,7 +199,7 @@ export default function HomePage() {
               </h2>
               <span className="cyan-rule mt-5 mb-5 block" />
               <p className="font-body text-base text-slate-mid leading-relaxed">
-                VIRENDRA RM & Associates (VRM) is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services. We offer bouquet of services under one roof. The Firm provides holistic and implementable advice to clients.
+                Virendra R M & Associates (VRM) is a professionally managed firm catering to domestic and international clients with a broad range of services in domestic and international taxation, regulatory and advisory services. We offer bouquet of services under one roof. The Firm provides holistic and implementable advice to clients.
               </p>
               <p className="font-body text-base text-slate-mid leading-relaxed mt-4">
                 Our team comprises dedicated Chartered Accountants, Company Secretaries, and consultants providing end-to-end services. Our objective is to help clients focus on and achieve their business and financial goals through personalized, tailored services.
