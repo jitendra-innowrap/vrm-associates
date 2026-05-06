@@ -74,13 +74,6 @@ export default function ServicesPage() {
             <p className="font-body text-base text-slate-mid mt-6 max-w-xl leading-relaxed">
               From audit and taxation to business setup and CFO support, explore our core services and choose the one aligned with your current business priorities.
             </p>
-            <div className="flex flex-wrap gap-6 mt-10">
-              {servicesData.map((cat) => (
-                <span key={cat.id} className="font-body text-xs text-vault-cyan transition-colors cursor-default">
-                  {cat.title}
-                </span>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
@@ -90,10 +83,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimatedSection className="text-center mb-14">
             <span className="section-label">All Services</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Choose a Service</h2>
-            <p className="font-body text-slate-mid mt-3 max-w-xl mx-auto">
-              Click any service card to view the dedicated service page with detailed scope and deliverables.
-            </p>
+            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Our Services</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {servicesData.map((svc, i) => (
@@ -120,7 +110,7 @@ export default function ServicesPage() {
           </div>
           <AnimatedSection className="mt-10 text-center">
             <Link
-              to="/contact"
+              to="#footer-get-in-touch"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
             >
               Talk to Our Team

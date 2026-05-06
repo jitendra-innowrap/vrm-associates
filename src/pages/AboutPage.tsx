@@ -115,7 +115,7 @@ export default function AboutPage() {
                   Explore Our Services <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  to="/contact"
+                  to="#footer-get-in-touch"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border border-vault-cyan text-vault-cyan font-display font-medium text-sm rounded-sm transition-all backdrop-blur-sm"
                 >
                   Get in Touch

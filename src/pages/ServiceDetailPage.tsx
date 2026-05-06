@@ -44,7 +44,7 @@ export default function ServiceDetailPage() {
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <Link
-                to="/contact"
+                to="#footer-get-in-touch"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
               >
                 Enquire Now
@@ -63,10 +63,6 @@ export default function ServiceDetailPage() {
 
       <section className="py-20 bg-alabaster">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <AnimatedSection className="mb-12">
-            <span className="section-label">Service Hierarchy</span>
-            <h2 className="font-display text-4xl font-bold text-obsidian mt-3">Service Deliverables</h2>
-          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {service.detailSections.map((section, index) => (
               <AnimatedSection key={section.title} delay={index * 0.08}>

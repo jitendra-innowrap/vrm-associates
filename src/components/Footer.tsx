@@ -24,12 +24,13 @@ const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   Services: [
-    { label: "Audit & Assurance", href: "/services" },
-    { label: "Direct Tax", href: "/services" },
-    { label: "GST Services", href: "/services" },
-    { label: "Advisory", href: "/services" },
-    { label: "Company Law", href: "/services" },
-    { label: "Virtual CFO", href: "/services" },
+    { label: "Audit and Assurance", href: "/services/audit-and-assurance" },
+    { label: "Compliance Assistance", href: "/services/compliance-assistance" },
+    { label: "Tax Solution", href: "/services/tax-solution" },
+    { label: "Book keeping", href: "/services/book-keeping" },
+    { label: "Business set up", href: "/services/business-set-up" },
+    { label: "Company law matters", href: "/services/company-law-mattes" },
+    { label: "Value added services", href: "/services/value-added-services" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
@@ -207,7 +208,7 @@ export default function Footer() {
               <div className="mt-8 space-y-4">
                 <a
                   href="tel:+91777706692"
-                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
+                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-base group"
                 >
                   <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
                     <Phone size={14} className="text-vault-cyan" />
@@ -216,7 +217,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="mailto:office@vrmca.in"
-                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-sm group"
+                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-base group"
                 >
                   <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
                     <Mail size={14} className="text-vault-cyan" />
@@ -252,14 +253,14 @@ export default function Footer() {
             <div className="mt-5 flex items-center gap-3">
               <a
                 href="tel:+91777706692"
-                className="inline-flex items-center gap-2 text-xs font-body text-slate-mid hover:text-vault-cyan transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-body text-slate-mid hover:text-vault-cyan transition-colors"
               >
                 <Phone size={12} className="text-vault-cyan" /> +91 777706692
               </a>
               <span className="text-border">·</span>
               <a
                 href="mailto:office@vrmca.in"
-                className="inline-flex items-center gap-2 text-xs font-body text-slate-mid hover:text-vault-cyan transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-body text-slate-mid hover:text-vault-cyan transition-colors"
               >
                 <ExternalLink size={12} className="text-vault-cyan" /> office@vrmca.in
               </a>

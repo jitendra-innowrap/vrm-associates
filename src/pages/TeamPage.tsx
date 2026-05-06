@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, Briefcase, Award, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Mail, Briefcase, Award } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 const heroBackdrop = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80&auto=format&fit=crop";
 
-import caVirendra from "@/assets/ca-virendra-DpFgvJoN.jpg";
-import caPriya from "@/assets/ca-priya-C5CTwqwN.jpg";
-const caAdvisoryLead = "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&q=80";
+import caVirendra from "@/assets/Virendra.png";
+import caPriya from "@/assets/Priya-CA.png";
+import caNaman from "@/assets/Naman Jha.png";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, inView } = useScrollReveal();
@@ -27,11 +26,11 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 const teamMembers = [
   {
     name: "CA Virendra Mishra",
-    designation: "Managing Partner",
-    credentials: "B.Com",
+    designation: "Partner",
+    credentials: "B.Com, FCA",
     experience: "10+ Years",
     photo: caVirendra,
-    bio: "With 10+ years of experience, Virendra Mishra, the Founding and Managing Partner of VRM, has been the visionary driving force behind the firm's establishment and growth. His expertise spans strategic leadership, tax advisory, and corporate finance. His dedication to building long-term client relationships and creating innovative solutions has transformed the firm into a leading professional services practice. He specializes in areas of Direct and Indirect taxes including representation before revenue authorities.",
+    bio: "With 10+ years of experience, Virendra Mishra, the Founding and Managing Partner of VRM, has been the visionary driving force behind the firm's establishment and growth. His expertise spans strategic leadership, tax advisory, and corporate finance. His dedication to building long-term client relationships and creating innovative solutions has transformed the firm into a leading professional services firm. He specializes in areas of Direct and Indirect taxes including representation before revenue authorities.",
     contact: "office@vrmca.in",
   },
   {
@@ -40,16 +39,16 @@ const teamMembers = [
     credentials: "M.Com, NISM certified (Broking and DP)",
     experience: "10+ Years",
     photo: caPriya,
-    bio: "She specializes in Assurance services to the BFSI sector and brings expertise in conducting audits of PMS companies, NBFC compliance, Stock Brokers, Research Analyst and Investment Advisors. Prior to joining the firm, she was associated with one of the leading stock brokers. She also specializes in management and operational audits, designing Standard Operating Procedures, and managing risk-based internal audits across industries.",
+    bio: "She specializes in Assurance services to BFSI sector and bring expertise in conducting audits of PMS companies, NBFC compliance, Stock Brokers, Research Analyst and Investment Advisors with over more than 10+ years of experience in the field. Prior to joining the firm, She was associated with the one of the leading stock broker. She brings a background of large corporate client audits including banks, insurance sector, brokers, and DPs. She specializes in management/operational audits, designing Standard Operating Procedures, and managing risk-based internal audits for large clients across different industries.",
     contact: "office@vrmca.in",
   },
   {
-    name: "CA Naman",
-    designation: "Partner - Taxation & Business Advisory",
-    credentials: "B.Com, FCA",
+    name: "CA Naman Jha",
+    designation: "Partner",
+    credentials: "B.Com",
     experience: "10+ Years",
-    photo: caAdvisoryLead,
-    bio: "A Chartered Accountant based in Mumbai with over 10 years of experience consulting Small and Medium Businesses (SMEs) across Taxation, GST, Banking, and day-to-day Business Management. He specializes in delivering practical business solutions and cost optimization through a holistic approach, backed by strong expertise in Domestic and International Taxation, GST, Audit and Assurance, Accounting, and Advisory services.",
+    photo: caNaman,
+    bio: "A Chartered Accountant based in Mumbai with over 10 years of experience consulting Small and Medium Businesses (SMEs) across Taxation, GST, Banking, and day-to-day Business Management. He specializes in delivering practical business solutions and cost optimization through a holistic approach, backed by strong expertise in Domestic and International Taxation | GST | Audit and Assurance | Accounting | Advisory services.",
     contact: "office@vrmca.in",
   },
 ];
@@ -67,7 +66,6 @@ const whyVrmPoints = [
 ];
 
 function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; index: number }) {
-  const [expanded, setExpanded] = useState(false);
   const { ref, inView } = useScrollReveal();
 
   return (
@@ -84,12 +82,12 @@ function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; inde
           <img
             src={member.photo}
             alt={member.name}
-            className="w-full h-full object-contain object-center absolute inset-0"
+            className="w-full h-full object-cover object-top absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian/20 to-transparent" />
         </div>
 
-        <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
+        <div className="p-6 md:p-8 flex flex-col flex-1 justify-start">
           <div>
             <div>
               <p className="font-body text-xs text-slate-light uppercase tracking-wider mb-1.5">
@@ -110,33 +108,7 @@ function TeamMemberCard({ member, index }: { member: typeof teamMembers[0]; inde
               <Mail size={14} />
               {member.contact}
             </a>
-            <div className="mt-4">
-              {!expanded ? (
-                <p className="font-body text-sm text-slate-mid leading-relaxed line-clamp-2">{member.bio}</p>
-              ) : null}
-              <button
-                onClick={() => setExpanded((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 text-vault-cyan font-body text-xs font-medium mt-3 hover:gap-2 transition-all"
-              >
-                {expanded ? "Hide Summary" : "Read Full Summary"}
-                <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                  <ChevronDown size={14} />
-                </motion.span>
-              </button>
-              <AnimatePresence>
-                {expanded && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <p className="font-body text-sm text-slate-mid leading-relaxed mt-3">{member.bio}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <p className="font-body text-sm text-slate-mid leading-relaxed mt-4">{member.bio}</p>
           </div>
         </div>
       </div>
@@ -209,7 +181,7 @@ export default function TeamPage() {
       {/* ——— TEAM CARDS ——— */}
       <section className="py-20 bg-alabaster">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}
@@ -249,7 +221,7 @@ export default function TeamPage() {
 
           <AnimatedSection className="mt-12 text-center">
             <Link
-              to="/contact"
+              to="#footer-get-in-touch"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all hover:bg-vault-cyan/90 hover:shadow-lg hover:shadow-vault-cyan/20"
             >
               Schedule a Consultation with Our Partners

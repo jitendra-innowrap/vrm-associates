@@ -104,7 +104,7 @@ export default function HomePage() {
               className="flex flex-wrap items-center gap-4 mt-10"
             >
               <Link
-                to="/contact"
+                to="#footer-get-in-touch"
                 className="group inline-flex items-center gap-2.5 px-8 py-4 bg-vault-cyan text-white font-display font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-vault-cyan/90 hover:shadow-xl hover:shadow-vault-cyan/30"
               >
                 Schedule a Free Consultation
