@@ -1,4 +1,3 @@
-import { Resend } from 'resend';
 import {
   jobApplicationEmailHtml,
   jobApplicationEmailText,
@@ -6,13 +5,9 @@ import {
   jobApplicationAutoReplyText,
   type JobApplicationData,
 } from '../src/emails/jobApplicationEmail';
-
-// Free tier: must send from onboarding@resend.dev to your verified email only
-const FROM_EMAIL = 'onboarding@resend.dev';
-const TO_EMAIL = 'jitendra@innowrap.com';
+import { sendMail, getLeadNotificationRecipients } from './lib/mail';
 
 export default async function handler(req: any, res: any) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
@@ -28,17 +23,19 @@ export default async function handler(req: any, res: any) {
       qualification: body.qualification,
     };
 
-    // Parse base64 resume attachment if provided
-    const attachments: { filename: string; content: string }[] = [];
+    const attachments: { filename: string; content: Buffer }[] = [];
     if (body.attachmentBase64 && body.attachmentName) {
       const base64Content = body.attachmentBase64.split(',')[1] || body.attachmentBase64;
-      attachments.push({ content: base64Content, filename: body.attachmentName });
+      attachments.push({
+        filename: body.attachmentName,
+        content: Buffer.from(base64Content, 'base64'),
+      });
     }
 
     // 1. Internal notification to VRM staff with resume attached
-    const { error: notifyError } = await resend.emails.send({
-      from: `VRM Careers <${FROM_EMAIL}>`,
-      to: [TO_EMAIL],
+    await sendMail({
+      fromName: 'VRM Careers',
+      to: getLeadNotificationRecipients(),
       replyTo: data.email,
       subject: `New Application: ${data.firstName} ${data.lastName}`,
       html: jobApplicationEmailHtml(data),
@@ -46,19 +43,14 @@ export default async function handler(req: any, res: any) {
       attachments,
     });
 
-    if (notifyError) {
-      console.error('Resend notify error:', notifyError);
-      return res.status(400).json({ error: notifyError.message });
-    }
-
     // 2. Auto-reply thank-you email to the applicant (fire & forget)
-    resend.emails.send({
-      from: `VRM Associates <${FROM_EMAIL}>`,
-      to: [data.email],
+    sendMail({
+      fromName: 'VRM Associates',
+      to: data.email,
       subject: 'Your application to VRM Associates — Received',
       html: jobApplicationAutoReplyHtml(data),
       text: jobApplicationAutoReplyText(data),
-    }).catch((err) => console.warn('Auto-reply failed (domain not verified?):', err));
+    }).catch((err) => console.warn('Auto-reply failed:', err));
 
     return res.status(200).json({ success: true });
   } catch (error: any) {

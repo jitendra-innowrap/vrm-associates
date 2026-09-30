@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, ExternalLink, Linkedin } from "lucide-react";
+import { LINKEDIN_URL } from "@/lib/social";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { toast } from "sonner";
 import BrandLogo from "@/components/BrandLogo";
+import { CONTACT_API } from "@/lib/api";
 import {
   Select,
   SelectContent,
@@ -51,7 +53,7 @@ function GetInTouchForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(CONTACT_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -230,6 +232,17 @@ export default function Footer() {
                   </div>
                   002, Bldg No C-8 Prahlad CHS, Shanti Nagar Sector 4, Mira Road East, Thane 401107
                 </div>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-slate-mid hover:text-vault-cyan transition-colors font-body text-base group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-vault-cyan/10 flex items-center justify-center group-hover:bg-vault-cyan/20 transition-colors flex-shrink-0">
+                    <Linkedin size={14} className="text-vault-cyan" />
+                  </div>
+                  Follow us on LinkedIn
+                </a>
               </div>
             </div>
             <div className="lg:col-span-3">
@@ -250,7 +263,7 @@ export default function Footer() {
             <p className="font-body text-sm text-slate-mid leading-relaxed max-w-xs">
               Virendra R M & Associates — Chartered Accountants. Your trusted partner in growth, compliance, and financial excellence.
             </p>
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-5 flex flex-wrap items-center gap-3">
               <a
                 href="tel:+91777706692"
                 className="inline-flex items-center gap-2 text-sm font-body text-slate-mid hover:text-vault-cyan transition-colors"
@@ -265,6 +278,16 @@ export default function Footer() {
                 <ExternalLink size={12} className="text-vault-cyan" /> office@vrmca.in
               </a>
             </div>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-body text-slate-mid hover:text-vault-cyan transition-colors"
+              aria-label="Virendra R M & Associates on LinkedIn"
+            >
+              <Linkedin size={16} className="text-vault-cyan" />
+              LinkedIn
+            </a>
           </div>
 
           {Object.entries(footerLinks).map(([section, links]) => (

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ArrowRight, MessageSquare } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, MessageSquare, Linkedin } from "lucide-react";
+import { LINKEDIN_URL } from "@/lib/social";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import { toast } from "sonner";
+import { CONTACT_API } from "@/lib/api";
 import {
   Select,
   SelectContent,
@@ -41,7 +43,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(CONTACT_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,6 +110,14 @@ export default function ContactPage() {
               >
                 <Mail size={15} /> Email Us
               </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-border font-display font-medium text-sm rounded-sm transition-all hover:border-vault-cyan hover:text-vault-cyan text-slate-mid"
+              >
+                <Linkedin size={15} /> LinkedIn
+              </a>
             </div>
           </motion.div>
         </div>
@@ -116,19 +126,29 @@ export default function ContactPage() {
       {/* ——— CONTACT DETAILS BAR ——— */}
       <section className="bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 lg:divide-x divide-border">
             {[
               {
                 icon: Phone,
                 title: "Call Us",
                 lines: ["+91 777706692"],
                 sub: "Mon–Sat: 10 AM – 7 PM",
+                href: "tel:+91777706692",
               },
               {
                 icon: Mail,
                 title: "Email Us",
                 lines: ["office@vrmca.in"],
                 sub: "Response within 1 business day",
+                href: "mailto:office@vrmca.in",
+              },
+              {
+                icon: Linkedin,
+                title: "LinkedIn",
+                lines: ["Virendra R M & Associates LLP"],
+                sub: "Company updates & news",
+                href: LINKEDIN_URL,
+                external: true,
               },
               {
                 icon: MapPin,
@@ -136,20 +156,38 @@ export default function ContactPage() {
                 lines: ["002, Bldg No C-8 Prahlad CHS"],
                 sub: "Shanti Nagar Sector 4, Mira Road East, Thane 401107",
               },
-            ].map((info) => (
-              <div key={info.title} className="flex items-start gap-4 py-7 px-4 md:px-8">
-                <div className="w-10 h-10 bg-alabaster border border-border rounded-lg flex items-center justify-center flex-shrink-0">
-                  <info.icon size={18} className="text-vault-cyan" />
+            ].map((info) => {
+              const content = (
+                <>
+                  <div className="w-10 h-10 bg-alabaster border border-border rounded-lg flex items-center justify-center flex-shrink-0">
+                    <info.icon size={18} className="text-vault-cyan" />
+                  </div>
+                  <div>
+                    <p className="font-display font-semibold text-obsidian text-sm mb-1">{info.title}</p>
+                    {info.lines.map((line) => (
+                      <p key={line} className="font-body text-sm text-slate-mid">{line}</p>
+                    ))}
+                    <p className="font-body text-xs text-slate-light mt-1">{info.sub}</p>
+                  </div>
+                </>
+              );
+
+              return info.href ? (
+                <a
+                  key={info.title}
+                  href={info.href}
+                  target={info.external ? "_blank" : undefined}
+                  rel={info.external ? "noopener noreferrer" : undefined}
+                  className="flex items-start gap-4 py-7 px-4 md:px-8 hover:bg-alabaster/80 transition-colors"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={info.title} className="flex items-start gap-4 py-7 px-4 md:px-8">
+                  {content}
                 </div>
-                <div>
-                  <p className="font-display font-semibold text-obsidian text-sm mb-1">{info.title}</p>
-                  {info.lines.map((line) => (
-                    <p key={line} className="font-body text-sm text-slate-mid">{line}</p>
-                  ))}
-                  <p className="font-body text-xs text-slate-light mt-1">{info.sub}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

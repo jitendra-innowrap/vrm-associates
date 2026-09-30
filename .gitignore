@@ -30,3 +30,7 @@ dist-ssr
 
 .vercel
 .env*.local
+
+# PHP mail (generated / installed at build)
+public/api/config.php
+public/api/vendor/

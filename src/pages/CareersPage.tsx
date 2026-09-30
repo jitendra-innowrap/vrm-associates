@@ -5,6 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import hexPattern from "@/assets/hex-pattern-DgAosZTo.png";
 import officeInteriorHero from "@/assets/office-interior-_0x9MCGU.jpg";
 import { toast } from "sonner";
+import { CAREERS_API } from "@/lib/api";
 import {
   Select,
   SelectContent,
@@ -93,7 +94,7 @@ export default function CareersPage() {
     }
 
     try {
-      const response = await fetch("/api/careers", {
+      const response = await fetch(CAREERS_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

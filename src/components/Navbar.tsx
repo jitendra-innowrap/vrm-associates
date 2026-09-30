@@ -125,7 +125,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="flex gap-1">
             <a
-              href="/VRM-Associates-Company-Profile.pdf"
+              href="/Virendra-R-M-and-Associates-LLP-2026.pdf"
               download
               className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-display font-medium text-sm rounded transition-all duration-200 hover:shadow-md ${isOpaque
                   ? "border border-vault-cyan text-vault-cyan hover:bg-vault-cyan/10"
@@ -203,7 +203,7 @@ export default function Navbar() {
               </li>
               <li className="pt-2">
                 <a
-                  href="/VRM-Associates-Company-Profile.pdf"
+                  href="/Virendra-R-M-and-Associates-LLP-2026.pdf"
                   download
                   className="flex items-center justify-center gap-2 w-full px-5 py-3 border border-vault-cyan text-vault-cyan font-display font-medium text-sm rounded hover:bg-vault-cyan/10 transition-colors"
                 >
